@@ -35,6 +35,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="v9u-64-vJB">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Courses" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="GIQ-jZ-8cN">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="pmH-sZ-bRU">
                             <connections>
                                 <action selector="addName:" destination="BYZ-38-t0r" id="PWi-x7-IDP"/>
@@ -47,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="429"/>
+            <point key="canvasLocation" x="1402" y="684"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ST6-GV-Mim">
@@ -65,7 +72,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvq-aU-IGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="591" y="1089"/>
+            <point key="canvasLocation" x="598" y="684"/>
         </scene>
     </scenes>
 </document>
