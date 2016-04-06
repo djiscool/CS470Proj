@@ -17,6 +17,12 @@ class CoursesDataSource: NSObject {
         super.init()
     }
     
+    func numCourses() -> Int {
+        return courses.count
+    }
     
-
+    func courseAt(index: Int) -> Course {
+        let course = Course(course: courses[index])
+        return course
+    }
 }
