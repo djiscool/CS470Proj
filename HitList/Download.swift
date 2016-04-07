@@ -28,6 +28,7 @@ class Download: NSObject {
     func download_request()
     {
         // Change URL location  ---------vvvvvvvvvvvvvvv---------
+        //https://www.cs.sonoma.edu/~kooshesh/cs315/projects/project1/artists.json
         let url:NSURL = NSURL(string: "https://www.cs.sonoma.edu/~dscott/spring2016courses.json")!
         let session = NSURLSession.sharedSession()
         

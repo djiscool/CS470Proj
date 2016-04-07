@@ -112,12 +112,12 @@
 				3F66EC2A1CB59BE1002739B7 /* CoursesTableViewController.swift */,
 				3F66EC2C1CB59C03002739B7 /* Download.swift */,
 				3F66EC2E1CB59DB7002739B7 /* CoursesDataSource.swift */,
+				3FAB69001CB5A2C400998612 /* Course.swift */,
 				3FB7ED4F1CAF107F004588ED /* Main.storyboard */,
 				3FB7ED551CAF107F004588ED /* Assets.xcassets */,
 				3FB7ED571CAF107F004588ED /* LaunchScreen.storyboard */,
 				3FB7ED5A1CAF107F004588ED /* Info.plist */,
 				3FB7ED521CAF107F004588ED /* HitList.xcdatamodeld */,
-				3FAB69001CB5A2C400998612 /* Course.swift */,
 			);
 			path = HitList;
 			sourceTree = "<group>";
