@@ -25,8 +25,8 @@
                   symbolName = "HitList.ViewController.tableView.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITableView&gt;"
                   moduleName = "HitList"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Documents/CS470Proj2/HitList/ViewController.swift"
-                  timestampString = "481667355.597376"
+                  urlString = "file:///Users/student/Documents/CS470Proj/HitList/ViewController.swift"
+                  timestampString = "481754895.678723"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -40,8 +40,8 @@
                   symbolName = "HitList.ViewController.tableView.materializeForSet : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITableView&gt;"
                   moduleName = "HitList"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Documents/CS470Proj2/HitList/ViewController.swift"
-                  timestampString = "481667355.597556"
+                  urlString = "file:///Users/student/Documents/CS470Proj/HitList/ViewController.swift"
+                  timestampString = "481754895.67883"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -55,8 +55,8 @@
                   symbolName = "HitList.ViewController.init (HitList.ViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; HitList.ViewController"
                   moduleName = "HitList"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Documents/CS470Proj2/HitList/ViewController.swift"
-                  timestampString = "481667355.597719"
+                  urlString = "file:///Users/student/Documents/CS470Proj/HitList/ViewController.swift"
+                  timestampString = "481754895.678932"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -70,8 +70,8 @@
                   symbolName = "HitList.ViewController.init (HitList.ViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;HitList.ViewController&gt;"
                   moduleName = "HitList"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Documents/CS470Proj2/HitList/ViewController.swift"
-                  timestampString = "481667355.597885"
+                  urlString = "file:///Users/student/Documents/CS470Proj/HitList/ViewController.swift"
+                  timestampString = "481754895.679028"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -260,55 +260,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HitList/Download.swift"
-            timestampString = "481667037.4703"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "download_request()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HitList/Download.swift"
-            timestampString = "481667051.365506"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "download_request()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HitList/Download.swift"
-            timestampString = "481667053.029463"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "download_request()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/CoursesTableViewController.swift"
@@ -321,14 +273,14 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HitList.CoursesTableViewController.coursesDS.getter : Swift.Optional&lt;HitList.CoursesDataSource&gt;"
                   moduleName = "HitList"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Documents/CS470Proj2/HitList/CoursesTableViewController.swift"
-                  timestampString = "481667355.601657"
+                  urlString = "file:///Users/student/Documents/CS470Proj/HitList/CoursesTableViewController.swift"
+                  timestampString = "481752438.875118"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -336,14 +288,14 @@
                   offsetFromSymbolStart = "12">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HitList.CoursesTableViewController.coursesDS.setter : Swift.Optional&lt;HitList.CoursesDataSource&gt;"
                   moduleName = "HitList"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Documents/CS470Proj2/HitList/CoursesTableViewController.swift"
-                  timestampString = "481667355.601844"
+                  urlString = "file:///Users/student/Documents/CS470Proj/HitList/CoursesTableViewController.swift"
+                  timestampString = "481752438.875318"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -351,14 +303,14 @@
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HitList.CoursesTableViewController.coursesDS.materializeForSet : Swift.Optional&lt;HitList.CoursesDataSource&gt;"
                   moduleName = "HitList"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Documents/CS470Proj2/HitList/CoursesTableViewController.swift"
-                  timestampString = "481667355.602005"
+                  urlString = "file:///Users/student/Documents/CS470Proj/HitList/CoursesTableViewController.swift"
+                  timestampString = "481752438.875462"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -366,14 +318,14 @@
                   offsetFromSymbolStart = "12">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HitList.CoursesTableViewController.init (HitList.CoursesTableViewController.Type)(style : __C.UITableViewStyle) -&gt; HitList.CoursesTableViewController"
                   moduleName = "HitList"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Documents/CS470Proj2/HitList/CoursesTableViewController.swift"
-                  timestampString = "481667355.602167"
+                  urlString = "file:///Users/student/Documents/CS470Proj/HitList/CoursesTableViewController.swift"
+                  timestampString = "481752438.87555"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -381,14 +333,14 @@
                   offsetFromSymbolStart = "28">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HitList.CoursesTableViewController.init (HitList.CoursesTableViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;HitList.CoursesTableViewController&gt;"
                   moduleName = "HitList"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Documents/CS470Proj2/HitList/CoursesTableViewController.swift"
-                  timestampString = "481667355.602498"
+                  urlString = "file:///Users/student/Documents/CS470Proj/HitList/CoursesTableViewController.swift"
+                  timestampString = "481752438.875761"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -396,38 +348,6 @@
                   offsetFromSymbolStart = "28">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HitList/Download.swift"
-            timestampString = "481667348.384146"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "Download"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HitList/CoursesDataSource.swift"
-            timestampString = "481667351.808169"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "init(dataSource:)"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
