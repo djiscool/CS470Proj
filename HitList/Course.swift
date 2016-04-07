@@ -15,6 +15,7 @@ class Course: NSObject {
         self.course = course
         super.init()
     }
+
     
     func courseName() -> String? {
         if let a = course["course_title"] {
@@ -22,4 +23,6 @@ class Course: NSObject {
         }
         return nil
     }
+    
+    
 }
