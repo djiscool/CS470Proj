@@ -10,6 +10,8 @@ import UIKit
 
 class CoursesDataSource: NSObject {
     
+    let coreDataStack = CoreDataStack(modelName: "Course List")
+    
     var courses: [AnyObject]
     
     init(dataSource: [AnyObject]) {

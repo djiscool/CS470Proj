@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2233B80D1CB63217005E1D1B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233B80C1CB63217005E1D1B /* CoreDataStack.swift */; };
 		3F66EC2B1CB59BE1002739B7 /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66EC2A1CB59BE1002739B7 /* CoursesTableViewController.swift */; };
 		3F66EC2D1CB59C03002739B7 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66EC2C1CB59C03002739B7 /* Download.swift */; };
 		3F66EC2F1CB59DB7002739B7 /* CoursesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66EC2E1CB59DB7002739B7 /* CoursesDataSource.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2233B80C1CB63217005E1D1B /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		3F66EC2A1CB59BE1002739B7 /* CoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewController.swift; sourceTree = "<group>"; };
 		3F66EC2C1CB59C03002739B7 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		3F66EC2E1CB59DB7002739B7 /* CoursesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesDataSource.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				3FB7ED571CAF107F004588ED /* LaunchScreen.storyboard */,
 				3FB7ED5A1CAF107F004588ED /* Info.plist */,
 				3FB7ED521CAF107F004588ED /* HitList.xcdatamodeld */,
+				2233B80C1CB63217005E1D1B /* CoreDataStack.swift */,
 			);
 			path = HitList;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				3F66EC2B1CB59BE1002739B7 /* CoursesTableViewController.swift in Sources */,
 				3F66EC2D1CB59C03002739B7 /* Download.swift in Sources */,
 				3F66EC2F1CB59DB7002739B7 /* CoursesDataSource.swift in Sources */,
+				2233B80D1CB63217005E1D1B /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
