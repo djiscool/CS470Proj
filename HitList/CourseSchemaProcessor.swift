@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CourseSchemeProcessor: NSObject {
+class CourseSchemaProcessor: NSObject {
 
 
     let courseModelJSONString: [AnyObject]
@@ -43,6 +43,11 @@ class CourseSchemeProcessor: NSObject {
 */
             }
         }
+    }
+    
+    
+    func numCourses() -> Int{
+        return 0
     }
 
 }

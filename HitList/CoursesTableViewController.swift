@@ -11,14 +11,11 @@ import UIKit
 
 class CoursesTableViewController: UITableViewController {
     
-    var coursesDS: CoursesDataSource?
+    var coursesSchema: CourseSchemaProcessor!
     var download: Download?
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        
-        download = Download(fvc: self)
-        download?.download_request()
         
     }
     
@@ -27,10 +24,7 @@ class CoursesTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated
     }
     
-    func acceptData(dataSource: CoursesDataSource) {
-        coursesDS = dataSource
-        tableView.reloadData()
-    }
+
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -39,14 +33,15 @@ class CoursesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if let n = coursesDS {
+        if let n = coursesSchema {
             return n.numCourses()
         }
         return 0
     }
     
-    
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("CourseTableCell", forIndexPath: indexPath)
         
         // Configure the cell...
@@ -55,5 +50,8 @@ class CoursesTableViewController: UITableViewController {
         cell.textLabel?.text = course?.courseName()
         
         return cell
+
     }
+*/
+
 }
