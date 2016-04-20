@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15A284" minimumToolsVersion="Automatic">
-    <entity name="Person" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1605" minimumToolsVersion="Automatic">
+    <entity name="SSUCourses" representedClassName="SSUCourses" syncable="YES">
+        <attribute name="acad_group" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="auto_enrol1" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="auto_enrol2" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="catalog" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="class_number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="class_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="combined_section" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="component" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="course_title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cs_number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="department" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="end_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="facility_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ge_designation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instructor_fName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instructor_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instructor_lName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="k_factor" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="max_units" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="meeting_pattern" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="min_units" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="s_factor" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="school_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="start_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="workload_factor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wtu" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Person" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="SSUCourses" positionX="-63" positionY="-18" width="128" height="465"/>
     </elements>
 </model>

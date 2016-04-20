@@ -12,8 +12,9 @@ import CoreData
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    // Change this url
-    let downloadAssistant = Download(withURLString: "https://www.cs.sonoma.edu/~kooshesh/cs470/artist_schema.json")
+    // Ability to Change this url in the future would be nice
+    // Address where the courses JSON is stored
+    let downloadAssistant = Download(withURLString: "https://www.cs.sonoma.edu/~dscott/spring2016courses.json")
     var coursesSchema: CourseSchemaProcessor!
     
     override func viewDidLoad() {
@@ -23,7 +24,7 @@ class ViewController: UIViewController {
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        //        print(downloadAssistant.dataFromServer!)
+                //print(downloadAssistant.dataFromServer!)
         coursesSchema = CourseSchemaProcessor(courseModelJSON: downloadAssistant.dataFromServer!)
     }
     
