@@ -62,8 +62,8 @@
 		3FB7ED701CAF107F004588ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FE824ED1CC80AA1007353C1 /* HitList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HitList.xcdatamodel; sourceTree = "<group>"; };
 		3FE824EF1CC80AD9007353C1 /* HitList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HitList-Bridging-Header.h"; sourceTree = "<group>"; };
-		3FE824FA1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SSUCourses+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3FE824FB1CC81958007353C1 /* SSUCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUCourses.swift; sourceTree = "<group>"; };
+		3FE824FA1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SSUCourses+CoreDataProperties.swift"; path = "../SSUCourses+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3FE824FB1CC81958007353C1 /* SSUCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSUCourses.swift; path = ../SSUCourses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +94,6 @@
 		3FB7ED3F1CAF107F004588ED = {
 			isa = PBXGroup;
 			children = (
-				3FE824FA1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift */,
-				3FE824FB1CC81958007353C1 /* SSUCourses.swift */,
 				3FB7ED4A1CAF107F004588ED /* HitList */,
 				3FB7ED621CAF107F004588ED /* HitListTests */,
 				3FB7ED6D1CAF107F004588ED /* HitListUITests */,
@@ -129,6 +127,8 @@
 				3FE824EC1CC80AA1007353C1 /* HitList.xcdatamodeld */,
 				2293A77D1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift */,
 				2293A77F1CC6DC6000BB8ECA /* CourseSchemaProcessor.swift */,
+				3FE824FA1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift */,
+				3FE824FB1CC81958007353C1 /* SSUCourses.swift */,
 			);
 			path = HitList;
 			sourceTree = "<group>";

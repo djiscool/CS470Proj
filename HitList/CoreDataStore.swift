@@ -14,8 +14,8 @@ class CoreDataStore: NSObject {
     // See https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CoreData/InitializingtheCoreDataStack.html
     // for more information about the need for creating varible manageObjectModel.
     
-    let storeName = "CoreDataForArtists"
-    let storeFilename = "CoreDataForArtists.sqlite"
+    let storeName = "HitList"
+    let storeFilename = "HitList.sqlite"
     
     lazy var applicationDocumentsDirectory: NSURL = {
         

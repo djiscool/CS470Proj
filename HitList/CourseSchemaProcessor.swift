@@ -28,16 +28,19 @@ class CourseSchemaProcessor: NSObject {
     }
 
     func processJSON(schema: [AnyObject]) {
+        /*
         for entity in schema {
             if let payload = entity["payload"], let entity_name = entity["entity_name"] {
                 let name = entity_name as! String
                 let objects = payload as! [AnyObject]
                 
                 if name == "SSUCourses" {
-                    processCoursesJSON(objects)
-                }
-            }
-        }
+*/ // Outline for processing JSON wtih multiple entities
+            // we don't have multiple entities, so we only need to process schema instead of objects
+                    processCoursesJSON(schema)
+                //}
+            //}
+        //}
     }
     
     func processCoursesJSON(artistObjects: [AnyObject]) {
@@ -144,7 +147,7 @@ class CourseSchemaProcessor: NSObject {
                 
             }
         }
-        //        coreDataContext.saveContext()
+                coreDataContext.saveContext()
     }
     
     func fetchAllCourses() {
