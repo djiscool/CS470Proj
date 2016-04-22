@@ -88,7 +88,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/ViewController.swift"
-            timestampString = "482875294.964679"
+            timestampString = "483051745.899855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/ViewController.swift"
-            timestampString = "482875294.964679"
+            timestampString = "483051745.899855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/ViewController.swift"
-            timestampString = "482875294.964679"
+            timestampString = "483051745.899855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/ViewController.swift"
-            timestampString = "482875294.964679"
+            timestampString = "483051745.899855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56">
+            startingLineNumber = "75"
+            endingLineNumber = "75">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -150,11 +150,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/ViewController.swift"
-            timestampString = "482875294.964679"
+            timestampString = "483051745.899855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61">
+            startingLineNumber = "80"
+            endingLineNumber = "80">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/ViewController.swift"
-            timestampString = "482875294.964679"
+            timestampString = "483051745.899855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103">
+            startingLineNumber = "122"
+            endingLineNumber = "122">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -178,11 +178,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/ViewController.swift"
-            timestampString = "482875294.964679"
+            timestampString = "483051745.899855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107">
+            startingLineNumber = "126"
+            endingLineNumber = "126">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -192,11 +192,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/ViewController.swift"
-            timestampString = "482875294.964679"
+            timestampString = "483051745.899855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115">
+            startingLineNumber = "134"
+            endingLineNumber = "134">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -206,11 +206,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/ViewController.swift"
-            timestampString = "482875294.964679"
+            timestampString = "483051745.899855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110">
+            startingLineNumber = "129"
+            endingLineNumber = "129">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -220,11 +220,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/ViewController.swift"
-            timestampString = "482875294.964679"
+            timestampString = "483051745.899855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121">
+            startingLineNumber = "140"
+            endingLineNumber = "140">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/ViewController.swift"
-            timestampString = "482875294.964679"
+            timestampString = "483051745.899855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113">
+            startingLineNumber = "132"
+            endingLineNumber = "132">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -337,15 +337,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/ViewController.swift"
-            timestampString = "482875324.00565"
+            timestampString = "483051745.899855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "observeValueForKeyPath(_:ofObject:change:context:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -353,7 +353,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitList/Download.swift"
@@ -363,6 +363,22 @@
             startingLineNumber = "27"
             endingLineNumber = "27"
             landmarkName = "download_request()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HitList/ViewController.swift"
+            timestampString = "483051742.684047"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
