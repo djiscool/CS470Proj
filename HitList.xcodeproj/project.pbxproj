@@ -7,19 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2233B80D1CB63217005E1D1B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233B80C1CB63217005E1D1B /* CoreDataStack.swift */; };
+		2233B80D1CB63217005E1D1B /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233B80C1CB63217005E1D1B /* CoreDataStore.swift */; };
+		2293A77E1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2293A77D1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift */; };
+		2293A7801CC6DC6000BB8ECA /* CourseSchemaProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2293A77F1CC6DC6000BB8ECA /* CourseSchemaProcessor.swift */; };
+		3F398FDD1CCACC9D00600B65 /* DatabaseVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F398FDC1CCACC9D00600B65 /* DatabaseVersion.swift */; };
 		3F66EC2B1CB59BE1002739B7 /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66EC2A1CB59BE1002739B7 /* CoursesTableViewController.swift */; };
 		3F66EC2D1CB59C03002739B7 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66EC2C1CB59C03002739B7 /* Download.swift */; };
-		3F66EC2F1CB59DB7002739B7 /* CoursesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66EC2E1CB59DB7002739B7 /* CoursesDataSource.swift */; };
-		3FAB69011CB5A2C400998612 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAB69001CB5A2C400998612 /* Course.swift */; };
 		3FB7ED4C1CAF107F004588ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7ED4B1CAF107F004588ED /* AppDelegate.swift */; };
 		3FB7ED4E1CAF107F004588ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7ED4D1CAF107F004588ED /* ViewController.swift */; };
 		3FB7ED511CAF107F004588ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FB7ED4F1CAF107F004588ED /* Main.storyboard */; };
-		3FB7ED541CAF107F004588ED /* HitList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7ED521CAF107F004588ED /* HitList.xcdatamodeld */; };
 		3FB7ED561CAF107F004588ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FB7ED551CAF107F004588ED /* Assets.xcassets */; };
 		3FB7ED591CAF107F004588ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FB7ED571CAF107F004588ED /* LaunchScreen.storyboard */; };
 		3FB7ED641CAF107F004588ED /* HitListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7ED631CAF107F004588ED /* HitListTests.swift */; };
 		3FB7ED6F1CAF107F004588ED /* HitListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7ED6E1CAF107F004588ED /* HitListUITests.swift */; };
+		3FE824EE1CC80AA1007353C1 /* HitList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FE824EC1CC80AA1007353C1 /* HitList.xcdatamodeld */; };
+		3FE824FC1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE824FA1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift */; };
+		3FE824FD1CC81958007353C1 /* SSUCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE824FB1CC81958007353C1 /* SSUCourses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,16 +43,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2233B80C1CB63217005E1D1B /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		2233B80C1CB63217005E1D1B /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		2293A77D1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCommonMethods.swift; sourceTree = "<group>"; };
+		2293A77F1CC6DC6000BB8ECA /* CourseSchemaProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSchemaProcessor.swift; sourceTree = "<group>"; };
+		3F398FDC1CCACC9D00600B65 /* DatabaseVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseVersion.swift; sourceTree = "<group>"; };
 		3F66EC2A1CB59BE1002739B7 /* CoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewController.swift; sourceTree = "<group>"; };
 		3F66EC2C1CB59C03002739B7 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
-		3F66EC2E1CB59DB7002739B7 /* CoursesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesDataSource.swift; sourceTree = "<group>"; };
-		3FAB69001CB5A2C400998612 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		3FB7ED481CAF107F004588ED /* HitList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB7ED4B1CAF107F004588ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FB7ED4D1CAF107F004588ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3FB7ED501CAF107F004588ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3FB7ED531CAF107F004588ED /* HitList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HitList.xcdatamodel; sourceTree = "<group>"; };
 		3FB7ED551CAF107F004588ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FB7ED581CAF107F004588ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FB7ED5A1CAF107F004588ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +62,10 @@
 		3FB7ED6A1CAF107F004588ED /* HitListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HitListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB7ED6E1CAF107F004588ED /* HitListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitListUITests.swift; sourceTree = "<group>"; };
 		3FB7ED701CAF107F004588ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FE824ED1CC80AA1007353C1 /* HitList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HitList.xcdatamodel; sourceTree = "<group>"; };
+		3FE824EF1CC80AD9007353C1 /* HitList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HitList-Bridging-Header.h"; sourceTree = "<group>"; };
+		3FE824FA1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SSUCourses+CoreDataProperties.swift"; path = "../SSUCourses+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3FE824FB1CC81958007353C1 /* SSUCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSUCourses.swift; path = ../SSUCourses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +100,7 @@
 				3FB7ED621CAF107F004588ED /* HitListTests */,
 				3FB7ED6D1CAF107F004588ED /* HitListUITests */,
 				3FB7ED491CAF107F004588ED /* Products */,
+				3FE824EF1CC80AD9007353C1 /* HitList-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,14 +121,17 @@
 				3FB7ED4D1CAF107F004588ED /* ViewController.swift */,
 				3F66EC2A1CB59BE1002739B7 /* CoursesTableViewController.swift */,
 				3F66EC2C1CB59C03002739B7 /* Download.swift */,
-				3F66EC2E1CB59DB7002739B7 /* CoursesDataSource.swift */,
-				3FAB69001CB5A2C400998612 /* Course.swift */,
 				3FB7ED4F1CAF107F004588ED /* Main.storyboard */,
 				3FB7ED551CAF107F004588ED /* Assets.xcassets */,
 				3FB7ED571CAF107F004588ED /* LaunchScreen.storyboard */,
 				3FB7ED5A1CAF107F004588ED /* Info.plist */,
-				3FB7ED521CAF107F004588ED /* HitList.xcdatamodeld */,
-				2233B80C1CB63217005E1D1B /* CoreDataStack.swift */,
+				2233B80C1CB63217005E1D1B /* CoreDataStore.swift */,
+				3FE824EC1CC80AA1007353C1 /* HitList.xcdatamodeld */,
+				2293A77D1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift */,
+				2293A77F1CC6DC6000BB8ECA /* CourseSchemaProcessor.swift */,
+				3FE824FA1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift */,
+				3FE824FB1CC81958007353C1 /* SSUCourses.swift */,
+				3F398FDC1CCACC9D00600B65 /* DatabaseVersion.swift */,
 			);
 			path = HitList;
 			sourceTree = "<group>";
@@ -274,14 +285,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FB7ED541CAF107F004588ED /* HitList.xcdatamodeld in Sources */,
-				3FAB69011CB5A2C400998612 /* Course.swift in Sources */,
 				3FB7ED4E1CAF107F004588ED /* ViewController.swift in Sources */,
 				3FB7ED4C1CAF107F004588ED /* AppDelegate.swift in Sources */,
+				3FE824FC1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift in Sources */,
+				2293A7801CC6DC6000BB8ECA /* CourseSchemaProcessor.swift in Sources */,
 				3F66EC2B1CB59BE1002739B7 /* CoursesTableViewController.swift in Sources */,
+				3FE824FD1CC81958007353C1 /* SSUCourses.swift in Sources */,
 				3F66EC2D1CB59C03002739B7 /* Download.swift in Sources */,
-				3F66EC2F1CB59DB7002739B7 /* CoursesDataSource.swift in Sources */,
-				2233B80D1CB63217005E1D1B /* CoreDataStack.swift in Sources */,
+				3FE824EE1CC80AA1007353C1 /* HitList.xcdatamodeld in Sources */,
+				2293A77E1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift in Sources */,
+				2233B80D1CB63217005E1D1B /* CoreDataStore.swift in Sources */,
+				3F398FDD1CCACC9D00600B65 /* DatabaseVersion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,10 +435,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HitList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonoma.cs.HitList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HitList-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -432,10 +449,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HitList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sonoma.cs.HitList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HitList-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -529,12 +548,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3FB7ED521CAF107F004588ED /* HitList.xcdatamodeld */ = {
+		3FE824EC1CC80AA1007353C1 /* HitList.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3FB7ED531CAF107F004588ED /* HitList.xcdatamodel */,
+				3FE824ED1CC80AA1007353C1 /* HitList.xcdatamodel */,
 			);
-			currentVersion = 3FB7ED531CAF107F004588ED /* HitList.xcdatamodel */;
+			currentVersion = 3FE824ED1CC80AA1007353C1 /* HitList.xcdatamodel */;
 			path = HitList.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -1,49 +1,38 @@
+
+
 //
 //  Download.swift
-//  HitList
+//  Navigation
 //
-//  Created by student on 4/6/16.
-//  Copyright © 2016 Sonoma State. All rights reserved.
+//  Created by AAK on 3/10/16.
+//  Copyright © 2016 SSU. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class Download: NSObject {
     
-    let fvc: CoursesTableViewController
+    var urlString: String
+    dynamic var dataFromServer: [AnyObject]?
     
-    init(fvc: CoursesTableViewController) {
-        self.fvc = fvc
+    init(withURLString: String) {
+        urlString = withURLString
         super.init()
     }
     
     func toDict(json: String) {
         let JSONData = json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        
-        let courses = try! NSJSONSerialization.JSONObjectWithData(JSONData!, options: []) as! [AnyObject]
-        fvc.acceptData(CoursesDataSource(dataSource: courses))
+        dataFromServer = try! NSJSONSerialization.JSONObjectWithData(JSONData!, options: []) as! [AnyObject]
     }
     
     func download_request()
     {
-        // Change URL location  ---------vvvvvvvvvvvvvvv---------
-        //https://www.cs.sonoma.edu/~kooshesh/cs315/projects/project1/artists.json
-        let url:NSURL = NSURL(string: "https://www.cs.sonoma.edu/~dscott/spring2016courses.json")!
+        let url:NSURL = NSURL(string: urlString)!
         let session = NSURLSession.sharedSession()
         
         let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
-        
-        let paramString = "data=Hello"
-        request.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)
-        
-        
         let task = session.downloadTaskWithRequest(request) {
-            (
-            let location, let response, let error) in
-            
+            (let location, let response, let error) in
             guard let _:NSURL = location, let _:NSURLResponse = response  where error == nil else {
                 print("error")
                 return
@@ -55,10 +44,8 @@ class Download: NSObject {
                 print("error")
                 return
             }
-            
-            print(urlContents)
+            //            print(urlContents)
             self.toDict(urlContents as String)
-            
         }
         
         task.resume()

@@ -9,121 +9,75 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    // Ability to Change this url in the future would be nice
+    // Address where the courses JSON is stored
+    let downloadAssistant = Download(withURLString: "https://www.cs.sonoma.edu/~dscott/spring2016courses.json")
+    var coursesSchema: CourseSchemaProcessor!
     
-    var people = [NSManagedObject]()
-    
-    @IBAction func addName(sender: AnyObject) {
-        
-        let alert = UIAlertController(title: "New Name",
-            message: "Add a new name", preferredStyle: .Alert)
-        
-        
-        let saveAction = UIAlertAction(title: "Save",
-            style: .Default,
-            handler: { (action:UIAlertAction) -> Void in
-                
-                let textField = alert.textFields!.first
-                self.saveName(textField!.text!)
-                self.tableView.reloadData()
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-            style: .Default) { (action: UIAlertAction) -> Void in
-        }
-        
-        alert.addTextFieldWithConfigurationHandler {
-            (textField: UITextField) -> Void in
-        }
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        presentViewController(alert, animated: true, completion: nil)
-    }
+    // Version Variables
+    let VersionGet = Download(withURLString: "https://www.cs.sonoma.edu/~dscott/version.json")
+    var downloadNewData : Bool  = false
+    var versionNumber : Float = 0.8
+    var haveVersion : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "\"The List\""
-        tableView.registerClass(UITableViewCell.self,
-            forCellReuseIdentifier: "Cell")
-        // Do any additional setup after loading the view, typically from a nib.
+        // Download version number from server
+        VersionGet.addObserver(self, forKeyPath: "dataFromServer", options: .Old, context: nil)
+        VersionGet.download_request()
+            }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if(!haveVersion){
+            // Get Version from web
+            VersionGet.download_request()
+            let version = DatabaseVersion(version: VersionGet.dataFromServer!)
+            if (version.getVersion() != nil) {
+                versionNumber = version.getVersion()!
+            }
+            
+            // https://www.hackingwithswift.com/read/12/2/reading-and-writing-basics-nsuserdefaults
+            let defaults = NSUserDefaults.standardUserDefaults()
+            // check if defaults has been set yet
+            if((defaults.objectForKey("versionNumber")) != nil){
+                // if version online is newer we want to download again
+                if(versionNumber > defaults.objectForKey("versionNumber") as! Float ){
+                    defaults.setFloat(versionNumber, forKey: "versionNumber")
+                    downloadNewData = true
+                }
+            }
+            else{ // if there is no version already then we want to download
+                defaults.setFloat(versionNumber, forKey: "versionNumber")
+                downloadNewData = true
+            }
+            
+            if(downloadNewData){
+                VersionGet.removeObserver(self, forKeyPath: "dataFromServer", context: nil)
+                downloadAssistant.addObserver(self, forKeyPath: "dataFromServer", options: .Old, context: nil)
+                downloadAssistant.download_request()
+            }
+        }
+        else{ // if we have version number then go ahead
+            coursesSchema = CourseSchemaProcessor(courseModelJSON: downloadAssistant.dataFromServer!)
+        }
+        if(downloadNewData){
+            haveVersion = true
+        }
+    }
+    
+    deinit {
+        downloadAssistant.removeObserver(self, forKeyPath: "dataFromServer", context: nil)
     }
 
-    func tableView(tableView: UITableView,
-        numberOfRowsInSection section: Int) -> Int {
-            return people.count
-    }
-    
-    func tableView(tableView: UITableView,
-        cellForRowAtIndexPath
-        indexPath: NSIndexPath) -> UITableViewCell {
-            
-            let cell =
-            tableView.dequeueReusableCellWithIdentifier("Cell")
-            
-            let person = people[indexPath.row]
-            
-            cell!.textLabel!.text = person.valueForKey("name") as? String
-            
-            return cell!
-    }
-    
-    func saveName(name: String) {
-        //1
-        let appDelegate =
-        UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
-        
-        //2
-        let entity =  NSEntityDescription.entityForName("Person",
-            inManagedObjectContext:managedContext)
-        
-        let person = NSManagedObject(entity: entity!,
-            insertIntoManagedObjectContext: managedContext)
-        
-        //3
-        person.setValue(name, forKey: "name")
-        
-        //4
-        do {
-            try managedContext.save()
-            //5
-            people.append(person)
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        }
-        
-        // changes
-        
-        // more changes potato salad
-    }
 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //1
-        let appDelegate =
-        UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
-        
-        //2
-        let fetchRequest = NSFetchRequest(entityName: "Person")
-        
-        //3
-        do {
-            let results =
-            try managedContext.executeFetchRequest(fetchRequest)
-            people = results as! [NSManagedObject]
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
-    }
+           }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
