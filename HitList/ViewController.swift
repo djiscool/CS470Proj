@@ -16,35 +16,56 @@ class ViewController: UIViewController {
     // Address where the courses JSON is stored
     let downloadAssistant = Download(withURLString: "https://www.cs.sonoma.edu/~dscott/spring2016courses.json")
     var coursesSchema: CourseSchemaProcessor!
+    
+    // Version Variables
+    let VersionGet = Download(withURLString: "https://www.cs.sonoma.edu/~dscott/version.json")
     var downloadNewData : Bool  = false
+    var versionNumber : Float = 0.8
+    var haveVersion : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let versionNumber : Float = 0.8
-        // https://www.hackingwithswift.com/read/12/2/reading-and-writing-basics-nsuserdefaults
-        let defaults = NSUserDefaults.standardUserDefaults()
-        // check if defaults has been set yet
-        if((defaults.objectForKey("versionNumber")) != nil){
-            // if version online is newer we want to download again
-            if(versionNumber > defaults.objectForKey("versionNumber") as! Float ){
+        // Download version number from server
+        VersionGet.addObserver(self, forKeyPath: "dataFromServer", options: .Old, context: nil)
+        VersionGet.download_request()
+            }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if(!haveVersion){
+            // Get Version from web
+            VersionGet.download_request()
+            let version = DatabaseVersion(version: VersionGet.dataFromServer!)
+            if (version.getVersion() != nil) {
+                versionNumber = version.getVersion()!
+            }
+            
+            // https://www.hackingwithswift.com/read/12/2/reading-and-writing-basics-nsuserdefaults
+            let defaults = NSUserDefaults.standardUserDefaults()
+            // check if defaults has been set yet
+            if((defaults.objectForKey("versionNumber")) != nil){
+                // if version online is newer we want to download again
+                if(versionNumber > defaults.objectForKey("versionNumber") as! Float ){
+                    defaults.setFloat(versionNumber, forKey: "versionNumber")
+                    downloadNewData = true
+                }
+            }
+            else{ // if there is no version already then we want to download
                 defaults.setFloat(versionNumber, forKey: "versionNumber")
                 downloadNewData = true
             }
+            
+            if(downloadNewData){
+                VersionGet.removeObserver(self, forKeyPath: "dataFromServer", context: nil)
+                downloadAssistant.addObserver(self, forKeyPath: "dataFromServer", options: .Old, context: nil)
+                downloadAssistant.download_request()
+            }
         }
-        else{ // if there is no version already then we want to download
-            defaults.setFloat(versionNumber, forKey: "versionNumber")
-            downloadNewData = true
+        else{ // if we have version number then go ahead
+            coursesSchema = CourseSchemaProcessor(courseModelJSON: downloadAssistant.dataFromServer!)
         }
-        
         if(downloadNewData){
-            downloadAssistant.addObserver(self, forKeyPath: "dataFromServer", options: .Old, context: nil)
-            downloadAssistant.download_request()
+            haveVersion = true
         }
-    }
-    
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-                //print(downloadAssistant.dataFromServer!)
-        coursesSchema = CourseSchemaProcessor(courseModelJSON: downloadAssistant.dataFromServer!)
     }
     
     deinit {
