@@ -48,6 +48,7 @@ class ViewController: UIViewController {
                     defaults.setFloat(versionNumber, forKey: "versionNumber")
                     downloadNewData = true
                 }
+                    
             }
             else{ // if there is no version already then we want to download
                 defaults.setFloat(versionNumber, forKey: "versionNumber")
@@ -62,6 +63,9 @@ class ViewController: UIViewController {
         }
         else{ // if we have version number then go ahead
             coursesSchema = CourseSchemaProcessor(courseModelJSON: downloadAssistant.dataFromServer!)
+            //print("numCourses: \(coursesSchema.numCourses())")
+            //print("numCourses GEB2: \(coursesSchema.numCourses("GEB2"))")
+            coursesSchema.createGEarray()
         }
         if(downloadNewData){
             haveVersion = true
