@@ -65,7 +65,6 @@ class ViewController: UIViewController {
             coursesSchema = CourseSchemaProcessor(courseModelJSON: downloadAssistant.dataFromServer!)
             //print("numCourses: \(coursesSchema.numCourses())")
             //print("numCourses GEB2: \(coursesSchema.numCourses("GEB2"))")
-            coursesSchema.createGEarray()
         }
         if(downloadNewData){
             haveVersion = true

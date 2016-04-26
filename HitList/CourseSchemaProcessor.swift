@@ -14,17 +14,19 @@ class CourseSchemaProcessor: NSObject {
 
     let courseModelJSONString: [AnyObject]
     let coreDataContext = CoreDataCommonMethods()
-
+    var GECourses: [String] = []
+    var coursesParsed: Bool = false
 
     init(courseModelJSON: [AnyObject]) {
         courseModelJSONString = courseModelJSON
         super.init()
         processJSON(courseModelJSON)
+        createGEarray()
         /*
         fetchArtistWithName("Beatles, The")
         fetchAlbumWithID("97269")
         */
-        fetchAllCourses()
+        //fetchAllCourses()
     }
 
     func processJSON(schema: [AnyObject]) {
@@ -219,32 +221,48 @@ class CourseSchemaProcessor: NSObject {
 
     }
     
+    // parses all available GE Categories from database, and puts in a string[]
     func createGEarray() {
-        // Initialize Fetch Request
-        let fetchRequest = NSFetchRequest()
-        
-        // Create Entity Description
-        let managedObjectContext = coreDataContext.backgroundContext!
-        let entityDescription = NSEntityDescription.entityForName("SSUCourses", inManagedObjectContext: managedObjectContext)
-        
-        // Configure Fetch Request
-        fetchRequest.entity = entityDescription
-        fetchRequest.predicate = NSPredicate(format: "ge_designation != nil")
-        fetchRequest.returnsDistinctResults = true
-        let sortDescriptor = NSSortDescriptor(key: "ge_designation", ascending: true)
-        let sortDescriptors = [sortDescriptor]
-        fetchRequest.sortDescriptors = sortDescriptors
-        
-        do {
-            let result = try managedObjectContext.executeFetchRequest(fetchRequest)
-            for course in result{
-                print (course.ge_designation)
-            }
+        if(!coursesParsed) {
+            // Initialize Fetch Request
+            let fetchRequest = NSFetchRequest()
             
-        } catch {
-            let fetchError = error as NSError
-            print(fetchError)
+            // Create Entity Description
+            let managedObjectContext = coreDataContext.backgroundContext!
+            let entityDescription = NSEntityDescription.entityForName("SSUCourses", inManagedObjectContext: managedObjectContext)
+            
+            // Configure Fetch Request
+            fetchRequest.entity = entityDescription
+            // This allows me to get distinct results
+            fetchRequest.resultType = NSFetchRequestResultType.DictionaryResultType
+            // we want just one attribute
+            fetchRequest.propertiesToFetch = ["ge_designation"]
+            // Distinct
+            fetchRequest.returnsDistinctResults = true
+            // sorts the results ascending
+            let sortDescriptor = NSSortDescriptor(key: "ge_designation", ascending: true)
+            let sortDescriptors = [sortDescriptor]
+            fetchRequest.sortDescriptors = sortDescriptors
+            
+            do {
+                let result = try managedObjectContext.executeFetchRequest(fetchRequest)
+                for ge in result{
+                    if let value = ge.valueForKey("ge_designation") as! String? {                        GECourses.append(value)
+                    }
+                }
+                
+                print(GECourses)
+                coursesParsed = true
+                
+            } catch {
+                let fetchError = error as NSError
+                print(fetchError)
+            }
         }
+    }
+    
+    func coursesForGe(ge: String){
+        
     }
 
 }
