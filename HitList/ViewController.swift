@@ -86,7 +86,29 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowMajors" {
+            /*
+            if let row = tableView.indexPathForSelectedRow?.row {bb bbbbb
+            let artist = artistsDS?.artistAt(row)
+            let detailedVC = segue.destinationViewController as! ArtistDetailedViewController
+            detailedVC.artistForThisView(artist!)
+            }
+            */
+            // OR
+            let detailedVC = segue.destinationViewController as! MajorsTableViewController
+            detailedVC.courseProcessorForThisView(coursesSchema)
+            
+
+            }
+            
+        }
+        
+        
+    }
 
 
-}
 

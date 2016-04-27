@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CoursesTableViewController: UITableViewController {
+class MajorsTableViewController: UITableViewController {
     
     var coursesSchema: CourseSchemaProcessor!
     var download: Download?
@@ -23,7 +23,9 @@ class CoursesTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated
     }
-    
+    func courseProcessorForThisView(ds: CourseSchemaProcessor) {
+        self.coursesSchema = ds
+    }
 
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -36,22 +38,28 @@ class CoursesTableViewController: UITableViewController {
         if let n = coursesSchema {
             return n.numCourses()
         }
-        return 0
+        return 2
     }
     
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("CourseTableCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("MajorTableCell", forIndexPath: indexPath)
         
         // Configure the cell...
         //cell.textLabel?.text = "Row number \(indexPath.row) in section \(indexPath.section)"
+        if let theCell = cell as? MajorTableViewCell {
+            let major = coursesSchema.getMajorForIndex(indexPath.row)
+            theCell.useMajor(major, numCourses: coursesSchema.numCourses(major))
+        }
+        /*
         let course = coursesDS?.courseAt(indexPath.row)
         cell.textLabel?.text = course?.courseName()
+        */
         
         return cell
 
     }
-*/
+
 
 }

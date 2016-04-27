@@ -16,12 +16,15 @@ class CourseSchemaProcessor: NSObject {
     let coreDataContext = CoreDataCommonMethods()
     var GECourses: [String] = []
     var coursesParsed: Bool = false
+    var Majors: [String] = []
+    var numMajors: Int = 0
 
     init(courseModelJSON: [AnyObject]) {
         courseModelJSONString = courseModelJSON
         super.init()
         processJSON(courseModelJSON)
         createGEarray()
+        createMajors()
         /*
         fetchArtistWithName("Beatles, The")
         fetchAlbumWithID("97269")
@@ -195,6 +198,8 @@ class CourseSchemaProcessor: NSObject {
     }
     
     func numCourses(GE: String) -> Int {
+
+        
         // returns how many courses in give GE or subject
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest()
@@ -206,7 +211,11 @@ class CourseSchemaProcessor: NSObject {
         
         // Configure Fetch Request
         fetchRequest.entity = entityDescription
-        fetchRequest.predicate = NSPredicate(format: "ge_designation = %@", GE)
+        if(GE == "GE"){
+            fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@", GE)
+        }else{
+            fetchRequest.predicate = NSPredicate(format: "ge_designation = %@", GE)
+        }
         
         do {
             let result = try managedObjectContext.executeFetchRequest(fetchRequest)
@@ -247,7 +256,8 @@ class CourseSchemaProcessor: NSObject {
             do {
                 let result = try managedObjectContext.executeFetchRequest(fetchRequest)
                 for ge in result{
-                    if let value = ge.valueForKey("ge_designation") as! String? {                        GECourses.append(value)
+                    if let value = ge.valueForKey("ge_designation") as! String? {
+                        GECourses.append(value)
                     }
                 }
                 
@@ -263,6 +273,20 @@ class CourseSchemaProcessor: NSObject {
     
     func coursesForGe(ge: String){
         
+    }
+    
+    func createMajors() {
+        // hard coding for now
+        Majors[0] = "GE"
+        Majors[1] = "ALL"
+        numMajors = 2
+    }
+    
+    func getMajorForIndex(index: Int) -> String {
+        //if (index < numMajors && numMajors > 0){
+            return Majors[index]
+        //}
+        //return nil
     }
 
 }

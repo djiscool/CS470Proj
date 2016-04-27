@@ -152,7 +152,7 @@
                                                 </constraints>
                                                 <state key="normal" title="GO!"/>
                                                 <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="iJE-J3-2PU"/>
+                                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowMajors" id="iJE-J3-2PU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4R-Pu-8x1">
@@ -225,16 +225,16 @@
             </objects>
             <point key="canvasLocation" x="6" y="203"/>
         </scene>
-        <!--Courses Table View Controller-->
+        <!--Majors Table View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CoursesTableViewController" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Cx-Y5-iOX" userLabel="CourseTableView">
+                <viewController id="BYZ-38-t0r" customClass="MajorsTableViewController" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Cx-Y5-iOX" userLabel="MajorTableView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseTableCell" textLabel="HYZ-5X-Ufw" style="IBUITableViewCellStyleDefault" id="KFq-JZ-5rt">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MajorTableCell" textLabel="HYZ-5X-Ufw" style="IBUITableViewCellStyleDefault" id="KFq-JZ-5rt" customClass="MajorTableViewCell" customModule="HitList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KFq-JZ-5rt" id="Ctq-0e-qyb">
@@ -250,6 +250,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="MajorTitle" destination="HYZ-5X-Ufw" id="MDf-gb-PdM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -259,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="192"/>
+            <point key="canvasLocation" x="778" y="165"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ST6-GV-Mim">
