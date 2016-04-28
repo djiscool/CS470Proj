@@ -329,6 +329,7 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="WKW-ap-ShN" secondAttribute="trailing" constant="-18" id="1H0-6N-o3d"/>
                                         <constraint firstItem="voj-0D-ubg" firstAttribute="firstBaseline" secondItem="y9R-0W-kIj" secondAttribute="firstBaseline" id="5gd-Nu-BiS"/>
                                         <constraint firstItem="voj-0D-ubg" firstAttribute="leading" secondItem="NVv-hf-rY3" secondAttribute="leading" constant="208" id="J3Z-Ge-BGd"/>
                                         <constraint firstAttribute="trailing" secondItem="WKW-ap-ShN" secondAttribute="trailing" id="PRu-UK-OVS"/>
@@ -341,7 +342,14 @@
                                         <constraint firstItem="WKW-ap-ShN" firstAttribute="leading" secondItem="voj-0D-ubg" secondAttribute="trailing" constant="8" symbolic="YES" id="pVl-gR-hbj"/>
                                         <constraint firstItem="WKW-ap-ShN" firstAttribute="firstBaseline" secondItem="voj-0D-ubg" secondAttribute="firstBaseline" id="q7Q-sa-h1K"/>
                                         <constraint firstItem="voj-0D-ubg" firstAttribute="baseline" secondItem="y9R-0W-kIj" secondAttribute="baseline" id="vr9-nR-3i0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="WKW-ap-ShN" secondAttribute="trailing" constant="-18" id="ybf-Pi-nnS"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="1H0-6N-o3d"/>
+                                            <exclude reference="PRu-UK-OVS"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="SeatsText" destination="WKW-ap-ShN" id="Z7M-A1-oO7"/>
