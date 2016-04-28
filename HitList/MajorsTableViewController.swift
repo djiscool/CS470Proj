@@ -61,11 +61,15 @@ class MajorsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let major = majorsSchema.getMajorForIndex(indexPath.row)
         // if selected all
-        //performSegueWithIdentifier(CourseTableView, sender: <#T##AnyObject?#>)
+        if major == "ALL" {
+            performSegueWithIdentifier("ShowCoursesView", sender: self)
+        }
+        else if major == "GE" {
         //if selected GE
-        //performSegueWithIdentifier(CategoryTableView, sender: <#T##AnyObject?#>)
-        
+            performSegueWithIdentifier("ShowCategoryView", sender: self)
+        }
     }
 
 

@@ -278,6 +278,10 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Major Select" id="v9u-64-vJB"/>
+                    <connections>
+                        <segue destination="Cgn-9B-v6K" kind="show" identifier="ShowCategoryView" id="RZb-Xk-LLd"/>
+                        <segue destination="i3i-cz-cAi" kind="show" identifier="ShowCoursesView" id="fcn-Oe-Ueb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -293,7 +297,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CategoryTableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableCell" id="xn0-GH-ESo" userLabel="CategoryTableCell" customClass="CategoryTableViewCell" customModule="HitList">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xn0-GH-ESo" id="NVv-hf-rY3">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -355,7 +359,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJ0-6b-czW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1630" y="165"/>
+            <point key="canvasLocation" x="1670" y="517"/>
         </scene>
         <!--Courses View Controller-->
         <scene sceneID="yCP-3e-wJd">
@@ -367,7 +371,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MZs-Pb-AHr" userLabel="CourseTableCell">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MZs-Pb-AHr" id="NZ9-pO-Hu0">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -404,4 +408,7 @@
             <point key="canvasLocation" x="-788" y="192"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HkY-m4-U6p"/>
+    </inferredMetricsTieBreakers>
 </document>
