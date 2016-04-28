@@ -23,7 +23,7 @@ class MajorsDataSource: NSObject {
 
     }
     
-    func numCourses() -> Int{
+    func numCourses(GE: String) -> Int{
         // returns how many courses in total there are
         
         // Initialize Fetch Request
@@ -36,6 +36,11 @@ class MajorsDataSource: NSObject {
         
         // Configure Fetch Request
         fetchRequest.entity = entityDescription
+        fetchRequest.entity = entityDescription
+        if(GE == "GE"){
+            fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@", GE)
+        }
+        
         do {
             let result = try managedObjectContext.executeFetchRequest(fetchRequest)
             count = result.count
@@ -47,7 +52,7 @@ class MajorsDataSource: NSObject {
         }
         return count
     }
-    
+    /*
     func numCourses(GE: String) -> Int {
         
         
@@ -62,11 +67,8 @@ class MajorsDataSource: NSObject {
         
         // Configure Fetch Request
         fetchRequest.entity = entityDescription
-        if(GE == "GE"){
-            fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@", GE)
-        }else{
-            fetchRequest.predicate = NSPredicate(format: "ge_designation = %@", GE)
-        }
+
+        fetchRequest.predicate = NSPredicate(format: "ge_designation = %@", GE)
         
         do {
             let result = try managedObjectContext.executeFetchRequest(fetchRequest)
@@ -80,6 +82,7 @@ class MajorsDataSource: NSObject {
         return count
         
     }
+*/
     
     // parses all available GE Categories from database, and puts in a string[]
     func createGEarray() {
@@ -128,8 +131,12 @@ class MajorsDataSource: NSObject {
     
     func createMajors() {
         // hard coding for now
+        /*
         Majors[0] = "GE"
         Majors[1] = "ALL"
+*/
+        Majors.append("GE")
+        Majors.append("ALL")
         numMajors = 2
     }
     
@@ -138,6 +145,10 @@ class MajorsDataSource: NSObject {
         return Majors[index]
         //}
         //return nil
+    }
+    
+    func numOfMajors() -> Int {
+        return numMajors
     }
 
 }

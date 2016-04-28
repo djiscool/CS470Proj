@@ -99,8 +99,7 @@ class ViewController: UIViewController {
             }
             */
             // OR
-            let detailedVC = segue.destinationViewController as! MajorsTableViewController
-            detailedVC.courseProcessorForThisView(coursesSchema)
+
             
 
             }
