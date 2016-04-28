@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		222F53D61CD19C1A00D66AB0 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F53D51CD19C1900D66AB0 /* CategoryTableCell.swift */; };
 		222F53D81CD1A1B500D66AB0 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F53D71CD1A1B500D66AB0 /* CategoryTableViewController.swift */; };
+		222F53DA1CD1A7B000D66AB0 /* CategoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F53D91CD1A7B000D66AB0 /* CategoryDataSource.swift */; };
+		222F53DC1CD1A7BC00D66AB0 /* CoursesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F53DB1CD1A7BC00D66AB0 /* CoursesDataSource.swift */; };
+		222F53DE1CD1A80500D66AB0 /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F53DD1CD1A80500D66AB0 /* CoursesTableViewController.swift */; };
+		222F53E01CD1A81700D66AB0 /* CourseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F53DF1CD1A81700D66AB0 /* CourseTableCell.swift */; };
 		2233B80D1CB63217005E1D1B /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233B80C1CB63217005E1D1B /* CoreDataStore.swift */; };
 		226E38211CD11C2C00467C55 /* MajorsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E38201CD11C2C00467C55 /* MajorsDataSource.swift */; };
 		2293A77E1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2293A77D1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift */; };
@@ -49,6 +53,10 @@
 /* Begin PBXFileReference section */
 		222F53D51CD19C1900D66AB0 /* CategoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 		222F53D71CD1A1B500D66AB0 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		222F53D91CD1A7B000D66AB0 /* CategoryDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDataSource.swift; sourceTree = "<group>"; };
+		222F53DB1CD1A7BC00D66AB0 /* CoursesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesDataSource.swift; sourceTree = "<group>"; };
+		222F53DD1CD1A80500D66AB0 /* CoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewController.swift; sourceTree = "<group>"; };
+		222F53DF1CD1A81700D66AB0 /* CourseTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableCell.swift; sourceTree = "<group>"; };
 		2233B80C1CB63217005E1D1B /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 		226E38201CD11C2C00467C55 /* MajorsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MajorsDataSource.swift; sourceTree = "<group>"; };
 		2293A77D1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCommonMethods.swift; sourceTree = "<group>"; };
@@ -129,9 +137,13 @@
 				3FB7ED4D1CAF107F004588ED /* ViewController.swift */,
 				3F66EC2A1CB59BE1002739B7 /* MajorsTableViewController.swift */,
 				222F53D71CD1A1B500D66AB0 /* CategoryTableViewController.swift */,
+				222F53DD1CD1A80500D66AB0 /* CoursesTableViewController.swift */,
 				22945A831CD065E3004E303E /* MajorTableCell.swift */,
 				222F53D51CD19C1900D66AB0 /* CategoryTableCell.swift */,
+				222F53DF1CD1A81700D66AB0 /* CourseTableCell.swift */,
 				226E38201CD11C2C00467C55 /* MajorsDataSource.swift */,
+				222F53D91CD1A7B000D66AB0 /* CategoryDataSource.swift */,
+				222F53DB1CD1A7BC00D66AB0 /* CoursesDataSource.swift */,
 				3F66EC2C1CB59C03002739B7 /* Download.swift */,
 				3FB7ED4F1CAF107F004588ED /* Main.storyboard */,
 				3FB7ED551CAF107F004588ED /* Assets.xcassets */,
@@ -301,14 +313,18 @@
 				3FB7ED4E1CAF107F004588ED /* ViewController.swift in Sources */,
 				222F53D81CD1A1B500D66AB0 /* CategoryTableViewController.swift in Sources */,
 				3FB7ED4C1CAF107F004588ED /* AppDelegate.swift in Sources */,
+				222F53DC1CD1A7BC00D66AB0 /* CoursesDataSource.swift in Sources */,
 				3FE824FC1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift in Sources */,
 				2293A7801CC6DC6000BB8ECA /* CourseSchemaProcessor.swift in Sources */,
 				3F66EC2B1CB59BE1002739B7 /* MajorsTableViewController.swift in Sources */,
 				3FE824FD1CC81958007353C1 /* SSUCourses.swift in Sources */,
 				3F66EC2D1CB59C03002739B7 /* Download.swift in Sources */,
+				222F53DE1CD1A80500D66AB0 /* CoursesTableViewController.swift in Sources */,
 				226E38211CD11C2C00467C55 /* MajorsDataSource.swift in Sources */,
+				222F53E01CD1A81700D66AB0 /* CourseTableCell.swift in Sources */,
 				3FE824EE1CC80AA1007353C1 /* HitList.xcdatamodeld in Sources */,
 				2293A77E1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift in Sources */,
+				222F53DA1CD1A7B000D66AB0 /* CategoryDataSource.swift in Sources */,
 				222F53D61CD19C1A00D66AB0 /* CategoryTableCell.swift in Sources */,
 				2233B80D1CB63217005E1D1B /* CoreDataStore.swift in Sources */,
 				3F398FDD1CCACC9D00600B65 /* DatabaseVersion.swift in Sources */,
