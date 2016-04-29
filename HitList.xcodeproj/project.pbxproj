@@ -10,6 +10,7 @@
 		2233B80D1CB63217005E1D1B /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233B80C1CB63217005E1D1B /* CoreDataStore.swift */; };
 		2293A77E1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2293A77D1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift */; };
 		2293A7801CC6DC6000BB8ECA /* CourseSchemaProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2293A77F1CC6DC6000BB8ECA /* CourseSchemaProcessor.swift */; };
+		2E05D6911CD2DA0400E32532 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E05D6901CD2DA0400E32532 /* Images.xcassets */; };
 		3F398FDD1CCACC9D00600B65 /* DatabaseVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F398FDC1CCACC9D00600B65 /* DatabaseVersion.swift */; };
 		3F66EC2B1CB59BE1002739B7 /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66EC2A1CB59BE1002739B7 /* CoursesTableViewController.swift */; };
 		3F66EC2D1CB59C03002739B7 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66EC2C1CB59C03002739B7 /* Download.swift */; };
@@ -46,6 +47,7 @@
 		2233B80C1CB63217005E1D1B /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 		2293A77D1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCommonMethods.swift; sourceTree = "<group>"; };
 		2293A77F1CC6DC6000BB8ECA /* CourseSchemaProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSchemaProcessor.swift; sourceTree = "<group>"; };
+		2E05D6901CD2DA0400E32532 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3F398FDC1CCACC9D00600B65 /* DatabaseVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseVersion.swift; sourceTree = "<group>"; };
 		3F66EC2A1CB59BE1002739B7 /* CoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewController.swift; sourceTree = "<group>"; };
 		3F66EC2C1CB59C03002739B7 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				3F66EC2C1CB59C03002739B7 /* Download.swift */,
 				3FB7ED4F1CAF107F004588ED /* Main.storyboard */,
 				3FB7ED551CAF107F004588ED /* Assets.xcassets */,
+				2E05D6901CD2DA0400E32532 /* Images.xcassets */,
 				3FB7ED571CAF107F004588ED /* LaunchScreen.storyboard */,
 				3FB7ED5A1CAF107F004588ED /* Info.plist */,
 				2233B80C1CB63217005E1D1B /* CoreDataStore.swift */,
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FB7ED591CAF107F004588ED /* LaunchScreen.storyboard in Resources */,
+				2E05D6911CD2DA0400E32532 /* Images.xcassets in Resources */,
 				3FB7ED561CAF107F004588ED /* Assets.xcassets in Resources */,
 				3FB7ED511CAF107F004588ED /* Main.storyboard in Resources */,
 			);
