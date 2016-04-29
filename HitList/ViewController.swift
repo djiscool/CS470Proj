@@ -12,6 +12,45 @@ import CoreData
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    // ****************************************************
+    // ******************** UI CHANGES ********************
+    // ****************************************************
+                                                      //***
+    @IBOutlet var selectedButtons: [UIView]!          //***
+                                                      //***
+    func selectAndDeselectButtons (index: Int) {      //***
+        if selectedButtons[index].alpha == 0.0 {      //***
+            selectedButtons[index].alpha = 1.0        //***
+        }                                             //***
+        else {                                        //***
+            selectedButtons[index].alpha = 0.0        //***
+        }                                             //***
+    }                                                 //***
+                                                      //***
+    @IBAction func clickMon(sender: UIButton) {       //***
+        selectAndDeselectButtons(0)                   //***
+    }                                                 //***
+    @IBAction func clickTues(sender: UIButton) {      //***
+        selectAndDeselectButtons(1)                   //***
+    }                                                 //***
+    @IBAction func clickWed(sender: UIButton) {       //***
+        selectAndDeselectButtons(2)                   //***
+    }                                                 //***
+    @IBAction func clickThurs(sender: UIButton) {     //***
+        selectAndDeselectButtons(3)                   //***
+    }                                                 //***
+    @IBAction func clickFri(sender: UIButton) {       //***
+        selectAndDeselectButtons(4)                   //***
+    }                                                 //***
+    @IBAction func clickSat(sender: UIButton) {       //***
+        selectAndDeselectButtons(5)                   //***
+    }                                                 //***
+                                                      //***
+    // ****************************************************
+    // ******************** UI CHANGES ********************
+    // ****************************************************
+    
     // Ability to Change this url in the future would be nice
     // Address where the courses JSON is stored
     let downloadAssistant = Download(withURLString: "https://www.cs.sonoma.edu/~dscott/spring2016courses.json")
@@ -26,6 +65,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Download version number from server
+        
+        // ******************************************
+        // *************** UI CHANGES ***************
+        // ******************************************
+                                                //***
+        for i in 0...5 {                        //***
+            selectedButtons[i].alpha = 0.0      //***
+        }                                       //***
+                                                //***
+        // ******************************************
+        // *************** UI CHANGES ***************
+        // ******************************************
+        
         VersionGet.addObserver(self, forKeyPath: "dataFromServer", options: .Old, context: nil)
         VersionGet.download_request()
             }
