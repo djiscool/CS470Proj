@@ -85,13 +85,13 @@ class MajorsTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "ShowMajors" {
+        if segue.identifier == "ShowCategoryView" {
 
 
             
-            let detailedVC = segue.destinationViewController as! MajorsTableViewController
-            
-            detailedVC.receiveDataFromMajorView(majorsSchema.createDayString(), startTimeStr: majorsSchema.startTime, endTimeStr: majorsSchema.endTime)
+            let detailedVC = segue.destinationViewController as! CategoryTableViewController
+
+            detailedVC.receiveDataFromMajorView(majorsSchema.createDayString(), startTimeStr: majorsSchema.getStartTime(), endTimeStr: majorsSchema.getEndTime())
             
         }
         

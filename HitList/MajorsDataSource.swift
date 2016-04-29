@@ -26,6 +26,14 @@ class MajorsDataSource: NSObject {
 
     }
     
+    func getStartTime() -> String {
+        return startTime!
+    }
+    
+    func getEndTime() -> String {
+        return endTime!
+    }
+    
     func setTime(start: String, end: String) {
         self.startTime = start
         self.endTime = end
