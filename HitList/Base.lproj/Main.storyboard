@@ -218,8 +218,8 @@
                     <navigationItem key="navigationItem" title="Time Select" id="e2v-SI-Ucg"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="BeginTime" destination="xog-If-2MM" id="GfJ-vU-fGz"/>
-                        <outlet property="endTime" destination="sQf-Yu-dMQ" id="i2Q-7Y-qEz"/>
+                        <outlet property="endTime" destination="sQf-Yu-dMQ" id="ivr-VW-bdr"/>
+                        <outlet property="startTime" destination="xog-If-2MM" id="lap-Ya-ZnX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNq-Fv-LHY" userLabel="First Responder" sceneMemberID="firstResponder"/>

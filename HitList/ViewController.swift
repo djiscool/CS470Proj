@@ -11,6 +11,8 @@ import CoreData
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var startTime: UIDatePicker!
+    @IBOutlet weak var endTime: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
     
     // ****************************************************
@@ -30,6 +32,7 @@ class ViewController: UIViewController {
                                                       //***
     @IBAction func clickMon(sender: UIButton) {       //***
         selectAndDeselectButtons(0)
+        weak var startTime: UINavigationItem!
         daysBool[0] = !daysBool[0]                    //***
     }                                                 //***
     @IBAction func clickTues(sender: UIButton) {      //***
@@ -162,8 +165,17 @@ class ViewController: UIViewController {
             }
             */
             // OR
-
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            let startTimeStr = dateFormatter.stringFromDate(startTime.date)
+        
+            let dateFormatter2 = NSDateFormatter()
+            dateFormatter2.dateFormat = "HH:mm:ss"
+            let endTimeStr = dateFormatter2.stringFromDate(endTime.date)
             
+            let detailedVC = segue.destinationViewController as! MajorsTableViewController
+
+            detailedVC.receiveDataFromTimeView(daysBool, startTime: startTimeStr, endTime: endTimeStr)
 
             }
             

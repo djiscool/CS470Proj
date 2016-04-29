@@ -11,6 +11,9 @@ import UIKit
 
 class MajorsTableViewController: UITableViewController {
     var majorsSchema: MajorsDataSource!
+    var startTime: String?
+    var endTime: String?
+    var daysBool: [Bool]?
 
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -22,8 +25,11 @@ class MajorsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated
     }
     
-    func courseProcessorForThisView(ds: CourseSchemaProcessor) {
-        // rewrite this function. use this for segeue
+    func receiveDataFromTimeView(daysBool: [Bool], startTime: String, endTime: String) {
+        // data from segueue
+        self.startTime = startTime
+        self.endTime = endTime
+        self.daysBool = daysBool
     }
 
     
