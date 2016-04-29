@@ -6,4 +6,27 @@
 //  Copyright © 2016 Sonoma State. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class CourseTableViewCell: UITableViewCell {
+    
+    
+
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+    func useCategory(major: String, numCourses: Int) { //
+        
+
+    }
+    
+}

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vLD-xr-eMv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vLD-xr-eMv">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -270,7 +270,7 @@
         <!--Category Table View Controller-->
         <scene sceneID="dBS-4T-LYG">
             <objects>
-                <tableViewController storyboardIdentifier="CategoryTableView" title="CategoryTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cgn-9B-v6K" userLabel="Category Table View Controller" customClass="CategoryTableViewController" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CategoryView" title="CategoryView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cgn-9B-v6K" userLabel="Category Table View Controller" customClass="CategoryTableViewController" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="63r-IH-hWi" userLabel="Category Table View">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -347,18 +347,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJ0-6b-czW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1670" y="517"/>
+            <point key="canvasLocation" x="1638" y="515"/>
         </scene>
         <!--Courses View Controller-->
         <scene sceneID="yCP-3e-wJd">
             <objects>
-                <tableViewController id="i3i-cz-cAi" userLabel="Courses View Controller" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Courses View" title="CoursesView" id="i3i-cz-cAi" userLabel="Courses View Controller" customClass="CoursesTableViewController" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hGM-yJ-0DG" userLabel="Courses Table View">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MZs-Pb-AHr" userLabel="CourseTableCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseTableCell" id="MZs-Pb-AHr" userLabel="CourseTableCell" customClass="CourseTableViewCell" customModule="HitList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MZs-Pb-AHr" id="NZ9-pO-Hu0">
@@ -575,7 +575,7 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="QeV-Bk-60e"/>
+                                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowMajors" id="QeV-Bk-60e"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4h-V7-bkm">
@@ -625,6 +625,8 @@
                     <navigationItem key="navigationItem" title="Start View" id="Ht2-90-DuE"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="endTime" destination="5bR-Nd-BDc" id="AkS-bT-xai"/>
+                        <outlet property="startTime" destination="por-GH-MJF" id="5tV-1T-1Bz"/>
                         <outletCollection property="selectedButtons" destination="2kI-74-yAX" collectionClass="NSMutableArray" id="pBy-IY-dca"/>
                         <outletCollection property="selectedButtons" destination="JXB-eI-QIp" collectionClass="NSMutableArray" id="mJk-IY-DSg"/>
                         <outletCollection property="selectedButtons" destination="MQU-oZ-eUd" collectionClass="NSMutableArray" id="MFk-Bz-HgS"/>
@@ -802,6 +804,6 @@
         <image name="doran_pic" width="802" height="802"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wxe-KO-kWC"/>
+        <segue reference="HkY-m4-U6p"/>
     </inferredMetricsTieBreakers>
 </document>

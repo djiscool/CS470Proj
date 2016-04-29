@@ -11,6 +11,7 @@ import CoreData
 
 class ViewController: UIViewController {
 
+
     @IBOutlet weak var startTime: UIDatePicker!
     @IBOutlet weak var endTime: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
@@ -158,7 +159,7 @@ class ViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "ShowMajors" {
             /*
-            if let row = tableView.indexPathForSelectedRow?.row {bb bbbbb
+            if let row = tableView.indexPathForSelectedRow?.row {
             let artist = artistsDS?.artistAt(row)
             let detailedVC = segue.destinationViewController as! ArtistDetailedViewController
             detailedVC.artistForThisView(artist!)
@@ -175,7 +176,7 @@ class ViewController: UIViewController {
             
             let detailedVC = segue.destinationViewController as! MajorsTableViewController
 
-            detailedVC.receiveDataFromTimeView(daysBool, startTime: startTimeStr, endTime: endTimeStr)
+            detailedVC.receiveDataFromTimeView(daysBool, startTimeStr: startTimeStr, endTimeStr: endTimeStr)
 
             }
             

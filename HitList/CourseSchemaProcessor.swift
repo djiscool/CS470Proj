@@ -131,24 +131,11 @@ class CourseSchemaProcessor: NSObject {
                     course.workload_factor = workload_factor as? String
                 }
                 if let end_time = courseDict["end_time"] {
-                    if let end_time: String? = String(end_time) {
-                    let RFC3339DateFormatter = NSDateFormatter()
-                    RFC3339DateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-                    RFC3339DateFormatter.dateFormat = "HH:mm:ss"
-                    let time = RFC3339DateFormatter.dateFromString(end_time!)
-                    course.end_time = time
-                    }
+                    course.end_time = end_time as? String
                 }
                 if let start_time = courseDict["start_time"] {
-                    if let start_time: String? = String(start_time) {
-                        let RFC3339DateFormatter = NSDateFormatter()
-                        RFC3339DateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-                        RFC3339DateFormatter.dateFormat = "HH:mm:ss"
-                        let time = RFC3339DateFormatter.dateFromString(start_time!)
-                        course.start_time = time
+                    course.start_time = start_time as? String
                     }
-                }
-                
             }
         }
                 coreDataContext.saveContext()

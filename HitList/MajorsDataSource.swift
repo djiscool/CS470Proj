@@ -36,7 +36,6 @@ class MajorsDataSource: NSObject {
         
         // Configure Fetch Request
         fetchRequest.entity = entityDescription
-        fetchRequest.entity = entityDescription
         if(GE == "GE"){
             fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@", GE)
         }

@@ -25,10 +25,10 @@ class MajorsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated
     }
     
-    func receiveDataFromTimeView(daysBool: [Bool], startTime: String, endTime: String) {
+    func receiveDataFromTimeView(daysBool: [Bool], startTimeStr: String, endTimeStr: String) {
         // data from segueue
-        self.startTime = startTime
-        self.endTime = endTime
+        self.startTime = startTimeStr
+        self.endTime = endTimeStr
         self.daysBool = daysBool
     }
 

@@ -18,6 +18,7 @@
 		2293A77E1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2293A77D1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift */; };
 		2293A7801CC6DC6000BB8ECA /* CourseSchemaProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2293A77F1CC6DC6000BB8ECA /* CourseSchemaProcessor.swift */; };
 		22945A841CD065E3004E303E /* MajorTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22945A831CD065E3004E303E /* MajorTableCell.swift */; };
+		3F29D6971CD3E9C9009F8C0E /* SSUCourses+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29D6961CD3E9C9009F8C0E /* SSUCourses+CoreDataProperties.swift */; };
 		3F398FDD1CCACC9D00600B65 /* DatabaseVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F398FDC1CCACC9D00600B65 /* DatabaseVersion.swift */; };
 		3F66EC2B1CB59BE1002739B7 /* MajorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66EC2A1CB59BE1002739B7 /* MajorsTableViewController.swift */; };
 		3F66EC2D1CB59C03002739B7 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66EC2C1CB59C03002739B7 /* Download.swift */; };
@@ -29,7 +30,6 @@
 		3FB7ED641CAF107F004588ED /* HitListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7ED631CAF107F004588ED /* HitListTests.swift */; };
 		3FB7ED6F1CAF107F004588ED /* HitListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7ED6E1CAF107F004588ED /* HitListUITests.swift */; };
 		3FE824EE1CC80AA1007353C1 /* HitList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FE824EC1CC80AA1007353C1 /* HitList.xcdatamodeld */; };
-		3FE824FC1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE824FA1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift */; };
 		3FE824FD1CC81958007353C1 /* SSUCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE824FB1CC81958007353C1 /* SSUCourses.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +62,7 @@
 		2293A77D1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCommonMethods.swift; sourceTree = "<group>"; };
 		2293A77F1CC6DC6000BB8ECA /* CourseSchemaProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSchemaProcessor.swift; sourceTree = "<group>"; };
 		22945A831CD065E3004E303E /* MajorTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MajorTableCell.swift; sourceTree = "<group>"; };
+		3F29D6961CD3E9C9009F8C0E /* SSUCourses+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SSUCourses+CoreDataProperties.swift"; path = "../SSUCourses+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3F398FDC1CCACC9D00600B65 /* DatabaseVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseVersion.swift; sourceTree = "<group>"; };
 		3F66EC2A1CB59BE1002739B7 /* MajorsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MajorsTableViewController.swift; sourceTree = "<group>"; };
 		3F66EC2C1CB59C03002739B7 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		3FB7ED701CAF107F004588ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FE824ED1CC80AA1007353C1 /* HitList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HitList.xcdatamodel; sourceTree = "<group>"; };
 		3FE824EF1CC80AD9007353C1 /* HitList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HitList-Bridging-Header.h"; sourceTree = "<group>"; };
-		3FE824FA1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SSUCourses+CoreDataProperties.swift"; path = "../SSUCourses+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3FE824FB1CC81958007353C1 /* SSUCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSUCourses.swift; path = ../SSUCourses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,9 +153,9 @@
 				3FE824EC1CC80AA1007353C1 /* HitList.xcdatamodeld */,
 				2293A77D1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift */,
 				2293A77F1CC6DC6000BB8ECA /* CourseSchemaProcessor.swift */,
-				3FE824FA1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift */,
 				3FE824FB1CC81958007353C1 /* SSUCourses.swift */,
 				3F398FDC1CCACC9D00600B65 /* DatabaseVersion.swift */,
+				3F29D6961CD3E9C9009F8C0E /* SSUCourses+CoreDataProperties.swift */,
 			);
 			path = HitList;
 			sourceTree = "<group>";
@@ -314,13 +314,13 @@
 				222F53D81CD1A1B500D66AB0 /* CategoryTableViewController.swift in Sources */,
 				3FB7ED4C1CAF107F004588ED /* AppDelegate.swift in Sources */,
 				222F53DC1CD1A7BC00D66AB0 /* CoursesDataSource.swift in Sources */,
-				3FE824FC1CC81958007353C1 /* SSUCourses+CoreDataProperties.swift in Sources */,
 				2293A7801CC6DC6000BB8ECA /* CourseSchemaProcessor.swift in Sources */,
 				3F66EC2B1CB59BE1002739B7 /* MajorsTableViewController.swift in Sources */,
 				3FE824FD1CC81958007353C1 /* SSUCourses.swift in Sources */,
 				3F66EC2D1CB59C03002739B7 /* Download.swift in Sources */,
 				222F53DE1CD1A80500D66AB0 /* CoursesTableViewController.swift in Sources */,
 				226E38211CD11C2C00467C55 /* MajorsDataSource.swift in Sources */,
+				3F29D6971CD3E9C9009F8C0E /* SSUCourses+CoreDataProperties.swift in Sources */,
 				222F53E01CD1A81700D66AB0 /* CourseTableCell.swift in Sources */,
 				3FE824EE1CC80AA1007353C1 /* HitList.xcdatamodeld in Sources */,
 				2293A77E1CC6D9BF00BB8ECA /* CoreDataCommonMethods.swift in Sources */,
