@@ -15,6 +15,9 @@ class MajorsDataSource: NSObject {
     var coursesParsed: Bool = false
     var Majors: [String] = []
     var numMajors: Int = 0
+    var daysBool: [Bool]?
+    var startTime: String?
+    var endTime: String?
 
     override init() {
         super.init()
@@ -23,6 +26,50 @@ class MajorsDataSource: NSObject {
 
     }
     
+    func setTime(start: String, end: String) {
+        self.startTime = start
+        self.endTime = end
+    }
+    
+    func setDate(days: [Bool]) {
+        daysBool = days
+    }
+    
+    func createDayString() -> String {
+        var dayString: String = ""
+        if daysBool![0] == true {
+            dayString += "M"
+        }
+        if daysBool![1] == true {
+            dayString += "T"
+        }
+        if daysBool![2] == true {
+            dayString += "W"
+        }
+        if daysBool![3] == true {
+            dayString += "TH"
+        }
+        if daysBool![4] == true {
+            dayString += "F"
+        }
+        if daysBool![5] == true {
+            dayString += "S"
+        }
+        return dayString
+    }
+    
+    func allFalse() -> Bool {
+        var allFalse: Bool = true
+        for i in daysBool! {
+            if i == true{
+                allFalse = false
+                break
+            }
+        }
+        return allFalse
+    }
+    
+    // Assumes setTime, and setDate have been called
     func numCourses(GE: String) -> Int{
         // returns how many courses in total there are
         
@@ -36,8 +83,23 @@ class MajorsDataSource: NSObject {
         
         // Configure Fetch Request
         fetchRequest.entity = entityDescription
-        if(GE == "GE"){
-            fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@", GE)
+        if allFalse(){
+            if(GE == "GE"){
+                fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND start_time >= %@ AND end_time <= %@", GE, startTime!, endTime!)
+            }
+            else {
+                fetchRequest.predicate = NSPredicate(format: "start_time >= %@ AND end_time <= %@", startTime!, endTime!)
+                
+            }
+        }
+        else{
+            if(GE == "GE"){
+                fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND start_time >= %@ AND end_time <= %@ AND meeting_pattern = %@", GE, startTime!, endTime!, createDayString())
+            }
+            else {
+                fetchRequest.predicate = NSPredicate(format: "start_time >= %@ AND end_time <= %@ AND meeting_pattern = %@", startTime!, endTime!, createDayString())
+                
+            }
         }
         
         do {

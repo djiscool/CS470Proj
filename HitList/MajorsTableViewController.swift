@@ -18,6 +18,8 @@ class MajorsTableViewController: UITableViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         majorsSchema = MajorsDataSource()
+        majorsSchema.setDate(daysBool!)
+        majorsSchema.setTime(startTime!, end: endTime!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,6 +32,7 @@ class MajorsTableViewController: UITableViewController {
         self.startTime = startTimeStr
         self.endTime = endTimeStr
         self.daysBool = daysBool
+
     }
 
     
@@ -76,6 +79,22 @@ class MajorsTableViewController: UITableViewController {
         //if selected GE
             performSegueWithIdentifier("ShowCategoryView", sender: self)
         }
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowMajors" {
+
+
+            
+            let detailedVC = segue.destinationViewController as! MajorsTableViewController
+            
+            detailedVC.receiveDataFromMajorView(majorsSchema.createDayString(), startTimeStr: majorsSchema.startTime, endTimeStr: majorsSchema.endTime)
+            
+        }
+        
     }
 
 

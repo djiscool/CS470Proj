@@ -10,11 +10,16 @@ import Foundation
 import UIKit
 
 class CategoryTableViewController: UITableViewController {
-    //var categorySchema: CategoryDataSource!
+    var categorySchema: CategoryDataSource!
+    var startTime: String?
+    var endTime: String?
+    var dayString: String?
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        //categorySchema = CategoryDataSource()
+        categorySchema = CategoryDataSource()
+        categorySchema.setDate(dayString!)
+        categorySchema.setTime(startTime!, end: endTime!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -22,8 +27,11 @@ class CategoryTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated
     }
     
-    func courseProcessorForThisView(ds: CourseSchemaProcessor) {
+    func receiveDataFromMajorView(days: String, startTimeStr: String, endTimeStr: String) {
         // rewrite this function. use this for segeue
+        self.dayString = days
+        self.startTime = startTimeStr
+        self.endTime = endTimeStr
     }
     
     
@@ -64,6 +72,7 @@ class CategoryTableViewController: UITableViewController {
         
         
     }
+
 
     
     

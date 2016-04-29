@@ -12,6 +12,9 @@ import UIKit
 
 class CoursesTableViewController: UITableViewController {
     //var categorySchema: CategoryDataSource!
+    var startTime: String?
+    var endTime: String?
+    var daysBool: [Bool]?
     
     override func viewDidLoad(){
         super.viewDidLoad()

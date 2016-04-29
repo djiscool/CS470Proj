@@ -96,6 +96,7 @@ class ViewController: UIViewController {
         
             }
     
+    
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if(!haveVersion){
             // Get Version from web
