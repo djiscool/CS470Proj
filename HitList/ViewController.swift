@@ -29,27 +29,36 @@ class ViewController: UIViewController {
     }                                                 //***
                                                       //***
     @IBAction func clickMon(sender: UIButton) {       //***
-        selectAndDeselectButtons(0)                   //***
+        selectAndDeselectButtons(0)
+        daysBool[0] = !daysBool[0]                    //***
     }                                                 //***
     @IBAction func clickTues(sender: UIButton) {      //***
-        selectAndDeselectButtons(1)                   //***
+        selectAndDeselectButtons(1)
+        daysBool[1] = !daysBool[1]                    //***
     }                                                 //***
     @IBAction func clickWed(sender: UIButton) {       //***
-        selectAndDeselectButtons(2)                   //***
+        selectAndDeselectButtons(2)
+        daysBool[2] = !daysBool[2]                    //***
     }                                                 //***
     @IBAction func clickThurs(sender: UIButton) {     //***
         selectAndDeselectButtons(3)                   //***
+        daysBool[3] = !daysBool[3]                    //***
     }                                                 //***
     @IBAction func clickFri(sender: UIButton) {       //***
         selectAndDeselectButtons(4)                   //***
+        daysBool[4] = !daysBool[4]                    //***
     }                                                 //***
     @IBAction func clickSat(sender: UIButton) {       //***
         selectAndDeselectButtons(5)                   //***
+        daysBool[5] = !daysBool[5]                    //***
     }                                                 //***
                                                       //***
     // ****************************************************
     // ******************** UI CHANGES ********************
     // ****************************************************
+    
+    // [mon,tue,wed,thu,fri,sat]
+    var daysBool: [Bool] = [false,false,false,false,false,false]
     
     // Ability to Change this url in the future would be nice
     // Address where the courses JSON is stored
@@ -80,6 +89,7 @@ class ViewController: UIViewController {
         
         VersionGet.addObserver(self, forKeyPath: "dataFromServer", options: .Old, context: nil)
         VersionGet.download_request()
+        
             }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
@@ -126,7 +136,8 @@ class ViewController: UIViewController {
     deinit {
         downloadAssistant.removeObserver(self, forKeyPath: "dataFromServer", context: nil)
     }
-
+    
+    
 
     
     override func viewWillAppear(animated: Bool) {

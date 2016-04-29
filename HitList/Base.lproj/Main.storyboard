@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vLD-xr-eMv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vLD-xr-eMv">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHK-cq-uXE">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CHK-cq-uXE">
                                 <rect key="frame" x="20" y="72" width="560" height="476"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="38z-uK-p3I">
@@ -79,7 +79,7 @@
                                             <constraint firstItem="8vj-h2-cSS" firstAttribute="baseline" secondItem="g1j-fM-Gw1" secondAttribute="baseline" id="xzU-qx-P0h"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0E-BT-T3D">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W0E-BT-T3D">
                                         <rect key="frame" x="116" y="62" width="320" height="332"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48A-0F-EJc">
@@ -141,7 +141,7 @@
                                             <constraint firstItem="sQf-Yu-dMQ" firstAttribute="top" secondItem="xog-If-2MM" secondAttribute="bottom" constant="44" id="yVW-6X-eel"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JwL-EA-lxs">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JwL-EA-lxs">
                                         <rect key="frame" x="116" y="402" width="353" height="66"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2T-pO-sIQ">
@@ -151,9 +151,6 @@
                                                     <constraint firstAttribute="height" constant="30" id="XVY-nH-qcb"/>
                                                 </constraints>
                                                 <state key="normal" title="GO!"/>
-                                                <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowMajors" id="iJE-J3-2PU"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4R-Pu-8x1">
                                                 <rect key="frame" x="283" y="18" width="42" height="30"/>
@@ -220,6 +217,10 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Time Select" id="e2v-SI-Ucg"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="BeginTime" destination="xog-If-2MM" id="GfJ-vU-fGz"/>
+                        <outlet property="endTime" destination="sQf-Yu-dMQ" id="i2Q-7Y-qEz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNq-Fv-LHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -258,8 +259,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Major Select" id="v9u-64-vJB"/>
                     <connections>
-                        <segue destination="Cgn-9B-v6K" kind="show" identifier="ShowCategoryView" id="RZb-Xk-LLd"/>
-                        <segue destination="i3i-cz-cAi" kind="show" identifier="ShowCoursesView" id="fcn-Oe-Ueb"/>
+                        <segue destination="Cgn-9B-v6K" kind="show" identifier="ShowCategoryView" id="5AE-UL-oHV"/>
+                        <segue destination="i3i-cz-cAi" kind="show" identifier="ShowCoursesView" id="wxe-KO-kWC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -278,17 +279,17 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CategoryTableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableCell" id="xn0-GH-ESo" userLabel="CategoryTableCell" customClass="CategoryTableViewCell" customModule="HitList">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="xn0-GH-ESo" id="NVv-hf-rY3">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xn0-GH-ESo" id="NVv-hf-rY3">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="GE" text="GE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9R-0W-kIj">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="GE" text="GE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9R-0W-kIj">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="SectAmt" text="Section Amt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voj-0D-ubg">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="SectAmt" text="Section Amt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voj-0D-ubg">
                                             <rect key="frame" x="208" y="0.0" width="200" height="43"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="200" id="BJa-pr-h2l"/>
@@ -297,7 +298,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="Seats" text="Seats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKW-ap-ShN">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Seats" text="Seats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKW-ap-ShN">
                                             <rect key="frame" x="416" y="0.0" width="194" height="43"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="194" id="vjY-yk-nkS"/>
@@ -801,7 +802,6 @@
         <image name="doran_pic" width="802" height="802"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QeV-Bk-60e"/>
-        <segue reference="fcn-Oe-Ueb"/>
+        <segue reference="wxe-KO-kWC"/>
     </inferredMetricsTieBreakers>
 </document>
