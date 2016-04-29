@@ -87,11 +87,17 @@ class MajorsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "ShowCategoryView" {
 
-
-            
             let detailedVC = segue.destinationViewController as! CategoryTableViewController
 
             detailedVC.receiveDataFromMajorView(majorsSchema.createDayString(), startTimeStr: majorsSchema.getStartTime(), endTimeStr: majorsSchema.getEndTime())
+            
+        }
+        
+        if segue.identifier == "ShowCoursesView" {
+            
+            let detailedVC = segue.destinationViewController as! CoursesTableViewController
+            
+            detailedVC.receiveDataFromMajorView(majorsSchema.createDayString(), startTimeStr: majorsSchema.getStartTime(), endTimeStr: majorsSchema.getEndTime(), selectedGE: "ALL")
             
         }
         

@@ -15,6 +15,7 @@ class CoursesDataSource: NSObject {
     var daysString: String?
     var startTime: String?
     var endTime: String?
+    var GE: String?
     
     override init() {
         super.init()
@@ -30,6 +31,9 @@ class CoursesDataSource: NSObject {
         daysString = days
     }
     
+    func setGECategory(GE: String) {
+        self.GE = GE
+    }
 
     
     func allFalse() -> Bool {
@@ -39,9 +43,8 @@ class CoursesDataSource: NSObject {
         return false
     }
     
-    // Assumes setTime, and setDate have been called
-    
-    func numCourses(GE: String) -> Int {
+    // Assumes setTime, setDate, and setGECategory have been called
+    func numCourses() -> Int {
         
         
         // returns how many courses in give GE or subject
@@ -56,7 +59,7 @@ class CoursesDataSource: NSObject {
         // Configure Fetch Request
         fetchRequest.entity = entityDescription
         
-        fetchRequest.predicate = NSPredicate(format: "ge_designation = %@", GE)
+        fetchRequest.predicate = NSPredicate(format: "ge_designation = %@", GE!)
         
         do {
             let result = try managedObjectContext.executeFetchRequest(fetchRequest)

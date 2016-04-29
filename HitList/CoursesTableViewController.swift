@@ -11,14 +11,24 @@ import Foundation
 import UIKit
 
 class CoursesTableViewController: UITableViewController {
-    //var categorySchema: CategoryDataSource!
+    var coursesSchema: CoursesDataSource!
     var startTime: String?
     var endTime: String?
-    var daysBool: [Bool]?
+    var dayString: String?
+    var allCourses: Bool?
+    var GECategory: String?
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        //categorySchema = CategoryDataSource()
+        coursesSchema = CoursesDataSource()
+        if(dayString != nil){
+            coursesSchema.setDate(dayString!)
+        }
+        else {
+            coursesSchema.setDate("")
+        }
+        coursesSchema.setTime(startTime!, end: endTime!)
+        coursesSchema.setGECategory(GECategory!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,11 +48,11 @@ class CoursesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        /*
-        if let n = majorsSchema {
-        return n.numOfMajors()
+        
+        if let n = coursesSchema {
+            return n.numCourses()
         }
-        */
+        
         return 2
     }
     
@@ -67,6 +77,22 @@ class CoursesTableViewController: UITableViewController {
         return cell
         
         
+    }
+    
+    func receiveDataFromMajorView(days: String?, startTimeStr: String, endTimeStr: String, selectedGE: String){
+        allCourses = true
+        self.dayString = days
+        self.startTime = startTimeStr
+        self.endTime = endTimeStr
+        self.GECategory = selectedGE
+    }
+    
+    func recievedDataFromCategory(days: String?, startTimeStr: String, endTimeStr: String){
+        allCourses = false
+        self.dayString = days
+        self.startTime = startTimeStr
+        self.endTime = endTimeStr
+
     }
     
     
