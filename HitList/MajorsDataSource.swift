@@ -194,9 +194,6 @@ class MajorsDataSource: NSObject {
         }
     }
     
-    func coursesForGe(ge: String){
-        
-    }
     
     func createMajors() {
         // hard coding for now

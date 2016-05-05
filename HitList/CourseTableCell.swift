@@ -10,7 +10,9 @@ import UIKit
 
 class CourseTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var cell_course: UILabel!
     
+    @IBOutlet weak var cell_seats: UILabel!
 
     
     override func awakeFromNib() {
@@ -24,8 +26,12 @@ class CourseTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func useCategory(major: String, numCourses: Int) { //
-        
+    func useCourse(course: String, numSeats: Int?) { //
+        cell_course.text = course
+        if((numSeats) != nil){
+            cell_seats.text = String(numSeats)
+
+        }
 
     }
     

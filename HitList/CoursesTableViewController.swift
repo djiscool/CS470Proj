@@ -29,15 +29,12 @@ class CoursesTableViewController: UITableViewController {
         }
         coursesSchema.setTime(startTime!, end: endTime!)
         coursesSchema.setGECategory(GECategory!)
+        coursesSchema.fetchCourses()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated
-    }
-    
-    func courseProcessorForThisView(ds: CourseSchemaProcessor) {
-        // rewrite this function. use this for segeue
     }
     
     
@@ -62,17 +59,11 @@ class CoursesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("CourseTableCell", forIndexPath: indexPath)
         
         // Configure the cell...
-        //cell.textLabel?.text = "Row number \(indexPath.row) in section \(indexPath.section)"
-        /*
-        if let theCell = cell as? MajorTableViewCell {
-        let major = majorsSchema.getMajorForIndex(indexPath.row)
-        theCell.useMajor(major, numCourses: majorsSchema.numCourses(major))
+        
+        if let theCell = cell as? CourseTableViewCell {
+        let course = coursesSchema.getCourseForIndex(indexPath.row)
+        theCell.useCourse(course, numSeats: nil) // nil until we figure out where to get seats from
         }
-        */
-        /*
-        let course = coursesDS?.courseAt(indexPath.row)
-        cell.textLabel?.text = course?.courseName()
-        */
         
         return cell
         
@@ -84,15 +75,15 @@ class CoursesTableViewController: UITableViewController {
         self.dayString = days
         self.startTime = startTimeStr
         self.endTime = endTimeStr
-        self.GECategory = selectedGE
+        self.GECategory = "ALL"
     }
     
-    func recievedDataFromCategory(days: String?, startTimeStr: String, endTimeStr: String){
+    func recievedDataFromCategory(days: String?, startTimeStr: String, endTimeStr: String, selectedGE: String){
         allCourses = false
         self.dayString = days
         self.startTime = startTimeStr
         self.endTime = endTimeStr
-
+        self.GECategory = selectedGE
     }
     
     
