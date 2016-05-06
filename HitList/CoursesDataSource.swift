@@ -225,6 +225,16 @@ class CoursesDataSource: NSObject {
         // Distinct
         fetchRequest.returnsDistinctResults = true
         
+        fetchRequest.resultType = .DictionaryResultType
+        
+        let sumExpression = NSExpression(format: "sum:(seats)")
+        let sumED = NSExpressionDescription()
+        sumED.expression = sumExpression
+        sumED.name = "sumOfAmount"
+        sumED.expressionResultType = .Integer16AttributeType
+        
+        fetchRequest.propertiesToFetch = ["seats", sumED]
+        
         switch daysString! {
         case "M", "T", "W", "TH", "F":
             fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@", course, startTime!, startTime!, endTime!, daysString!)
