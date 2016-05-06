@@ -20,7 +20,9 @@ class DatabaseVersion: NSObject {
     
     
     func getVersion() -> Float? {
-        if let ver = version["version"] {
+        let firstValue = version[0]
+        if let ver = firstValue["version"] {
+            print("ver = \(ver)")
             return ver as? Float
         }
         return nil

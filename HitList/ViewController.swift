@@ -106,6 +106,9 @@ class ViewController: UIViewController {
                 versionNumber = version.getVersion()!
             }
             
+            //print(VersionGet.dataFromServer)
+            print(version.getVersion())
+            
             // https://www.hackingwithswift.com/read/12/2/reading-and-writing-basics-nsuserdefaults
             let defaults = NSUserDefaults.standardUserDefaults()
             // check if defaults has been set yet

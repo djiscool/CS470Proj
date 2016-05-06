@@ -222,6 +222,9 @@ class CoursesDataSource: NSObject {
         // Configure Fetch Request
         fetchRequest.entity = entityDescription
         
+        // Distinct
+        fetchRequest.returnsDistinctResults = true
+        
         switch daysString! {
         case "M", "T", "W", "TH", "F":
             fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@", course, startTime!, startTime!, endTime!, daysString!)
