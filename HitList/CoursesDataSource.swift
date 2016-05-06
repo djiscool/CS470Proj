@@ -17,7 +17,6 @@ class CoursesDataSource: NSObject {
     var endTime: String?
     var GE: String?
     var Courses: [String] = []
-    var CourseSeats: [Int?] = []
     var courseCount: Int = 0
     
     override init() {
@@ -71,11 +70,7 @@ class CoursesDataSource: NSObject {
         
         // Configure Fetch Request
         fetchRequest.entity = entityDescription
-        /*
-        if allFalse(){
-            fetchRequest.predicate = NSPredicate(format: "start_time >= %@ AND end_time <= %@", startTime!, endTime!)
-        }
-        else{*/
+
             switch daysString! {
                 case "M", "T", "W", "TH", "F":
                     fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@", startTime!, startTime!, endTime!, daysString!)
@@ -88,12 +83,20 @@ class CoursesDataSource: NSObject {
                 default:
                     fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@))", startTime!, startTime!, endTime!)
             }
-        //}
         
         // sorts the results ascending
         let sortDescriptor = NSSortDescriptor(key: "subject", ascending: true)
         let sortDescriptors = [sortDescriptor]
         fetchRequest.sortDescriptors = sortDescriptors
+        
+        // Distinct
+        fetchRequest.returnsDistinctResults = true
+        
+        // This allows me to get distinct results
+        fetchRequest.resultType = NSFetchRequestResultType.DictionaryResultType
+        
+        // we want just one attribute
+        fetchRequest.propertiesToFetch = ["course_title"]
         
         do {
             let result = try managedObjectContext.executeFetchRequest(fetchRequest)
@@ -102,11 +105,9 @@ class CoursesDataSource: NSObject {
                     Courses.append(value)
                     //print("value \(value)")
                 }
-                if let seat = course.valueForKey("seats") as! Int? {
-                    CourseSeats.append(seat)
-                }
             }
             courseCount += result.count
+
         } catch {
             let fetchError = error as NSError
             print(fetchError)
@@ -124,7 +125,14 @@ class CoursesDataSource: NSObject {
         // Configure Fetch Request
         fetchRequest.entity = entityDescription
         
-        //fetchRequest.predicate = NSPredicate(format: "ge_designation = %@", GE!)
+        // Distinct
+        fetchRequest.returnsDistinctResults = true
+        
+        // This allows me to get distinct results
+        fetchRequest.resultType = NSFetchRequestResultType.DictionaryResultType
+        
+        // we want just one attribute
+        fetchRequest.propertiesToFetch = ["course_title"]
         
         switch daysString! {
         case "M", "T", "W", "TH", "F":
@@ -157,13 +165,9 @@ class CoursesDataSource: NSObject {
                         getCourseForAutoEnroll(value, section: autoenrol2)
                     }
                 }
-                // also need to get seats for course here
-                if let seat = course.valueForKey("seats") as! Int? {
-                    CourseSeats.append(seat)
-                }
+                courseCount += 1
             }
             
-            courseCount += result.count
         } catch {
             let fetchError = error as NSError
             print(fetchError)
@@ -207,9 +211,45 @@ class CoursesDataSource: NSObject {
     }
     
     func getNumSeats(index: Int) -> Int? {
-        return CourseSeats[index]
+        let course = getCourseForIndex(index)
+        let fetchRequest = NSFetchRequest()
+        var numOfSeats = 0
+        
+        // Create Entity Description
+        let managedObjectContext = coreDataContext.backgroundContext!
+        let entityDescription = NSEntityDescription.entityForName("SSUCourses", inManagedObjectContext: managedObjectContext)
+        
+        // Configure Fetch Request
+        fetchRequest.entity = entityDescription
+        
+        switch daysString! {
+        case "M", "T", "W", "TH", "F":
+            fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@", course, startTime!, startTime!, endTime!, daysString!)
+        case "MW":
+            fetchRequest.predicate = NSPredicate(format: "course_title = %@AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", course, startTime!, startTime!, endTime!, "M", "W", "MW")
+        case "MWF":
+            fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ or meeting_pattern = %@", course,  startTime!, startTime!, endTime!, "M", "W", "F", "MW", "MWF")
+        case "TTH":
+            fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@", course, startTime!, startTime!, endTime!, "T", "TH", "TTH")
+        default:
+            fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@))", course, startTime!, startTime!, endTime!)
+        }
+        
+        do {
+            let result = try managedObjectContext.executeFetchRequest(fetchRequest)
+            for course in result {
+                if let value = course.valueForKey("seats") as! Int? {
+                    numOfSeats += value
+                }
+
+            }
+            
+        } catch {
+            let fetchError = error as NSError
+            print(fetchError)
+        }
+    
+        return numOfSeats
     }
-    
-    
 }
     
