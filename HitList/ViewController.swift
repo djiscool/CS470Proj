@@ -66,7 +66,9 @@ class ViewController: UIViewController {
     
     // Ability to Change this url in the future would be nice
     // Address where the courses JSON is stored
-    let downloadAssistant = Download(withURLString: "https://www.cs.sonoma.edu/~dscott/spring2016courses.json")
+    //let downloadAssistant = Download(withURLString: "https://www.cs.sonoma.edu/~dscott/spring2016courses.json")
+    let downloadAssistant = Download(withURLString: "https://www.cs.sonoma.edu/~dscott/courses.json")
+
     var coursesSchema: CourseSchemaProcessor!
     
     // Version Variables
@@ -112,17 +114,16 @@ class ViewController: UIViewController {
             // https://www.hackingwithswift.com/read/12/2/reading-and-writing-basics-nsuserdefaults
             let defaults = NSUserDefaults.standardUserDefaults()
             // check if defaults has been set yet
-            if((defaults.objectForKey("versionNumber")) != nil){
-                // if version online is newer we want to download again
-                if(versionNumber > defaults.objectForKey("versionNumber") as! Float ){
-                    defaults.setFloat(versionNumber, forKey: "versionNumber")
-                    downloadNewData = true
-                }
-                    
-            }
-            else{ // if there is no version already then we want to download
+            if(defaults.objectForKey("versionNumber") == nil){ // if there is no version already then we want to download
                 defaults.setFloat(versionNumber, forKey: "versionNumber")
                 downloadNewData = true
+            }
+            else if(versionNumber > defaults.objectForKey("versionNumber") as! Float ){
+                    defaults.setFloat(versionNumber, forKey: "versionNumber")
+                    downloadNewData = true
+            }
+            else {
+                VersionGet.removeObserver(self, forKeyPath: "dataFromServer", context: nil)
             }
             
             if(downloadNewData){

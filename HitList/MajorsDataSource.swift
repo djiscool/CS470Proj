@@ -113,7 +113,7 @@ class MajorsDataSource: NSObject {
         do {
             let result = try managedObjectContext.executeFetchRequest(fetchRequest)
             count = result.count
-            //print(count)
+            print(count)
             
         } catch {
             let fetchError = error as NSError

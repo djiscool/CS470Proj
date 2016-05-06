@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HitList/CoursesDataSource.swift"
-            timestampString = "484264786.017573"
+            filePath = "HitList/ViewController.swift"
+            timestampString = "484268849.821122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
-            landmarkName = "getNumSeats(_:)"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "observeValueForKeyPath(_:ofObject:change:context:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

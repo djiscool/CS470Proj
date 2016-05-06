@@ -14,6 +14,7 @@ class CategoryTableViewController: UITableViewController {
     var startTime: String?
     var endTime: String?
     var dayString: String?
+    var GE: String?
     
     override func viewDidLoad(){
         super.viewDidLoad()

@@ -79,7 +79,7 @@ class CourseSchemaProcessor: NSObject {
                 if let start_time = courseDict["start_time"] {
                     course.start_time = start_time as? String
                 }
-                if let seats = courseDict["seats"] {
+                if let seats = courseDict["total_enrolled"] {
                     course.seats = seats as? NSNumber
                 }
             }
