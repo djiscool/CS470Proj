@@ -97,12 +97,12 @@ class CoursesDataSource: NSObject {
         
         do {
             let result = try managedObjectContext.executeFetchRequest(fetchRequest)
-            for ge in result{
-                if let value = ge.valueForKey("course_title") as! String? {
+            for course in result{
+                if let value = course.valueForKey("course_title") as! String? {
                     Courses.append(value)
                     //print("value \(value)")
                 }
-                if let seat = ge.valueForKey("seats") as! Int? {
+                if let seat = course.valueForKey("seats") as! Int? {
                     CourseSeats.append(seat)
                 }
             }
@@ -124,7 +124,20 @@ class CoursesDataSource: NSObject {
         // Configure Fetch Request
         fetchRequest.entity = entityDescription
         
-        fetchRequest.predicate = NSPredicate(format: "ge_designation = %@", GE!)
+        //fetchRequest.predicate = NSPredicate(format: "ge_designation = %@", GE!)
+        
+        switch daysString! {
+        case "M", "T", "W", "TH", "F":
+            fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@", GE!, startTime!, startTime!, endTime!, daysString!)
+        case "MW":
+            fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", GE!, startTime!, startTime!, endTime!, "M", "W", "MW")
+        case "MWF":
+            fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ or meeting_pattern = %@", GE!,  startTime!, startTime!, endTime!, "M", "W", "F", "MW", "MWF")
+        case "TTH":
+            fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@", GE!, startTime!, startTime!, endTime!, "T", "TH", "TTH")
+        default:
+            fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@))", GE!, startTime!, startTime!, endTime!)
+        }
         
         do {
             let result = try managedObjectContext.executeFetchRequest(fetchRequest)
@@ -145,6 +158,9 @@ class CoursesDataSource: NSObject {
                     }
                 }
                 // also need to get seats for course here
+                if let seat = course.valueForKey("seats") as! Int? {
+                    CourseSeats.append(seat)
+                }
             }
             
             courseCount += result.count
