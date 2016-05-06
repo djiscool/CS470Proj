@@ -28,8 +28,10 @@ class CourseTableViewCell: UITableViewCell {
     
     func useCourse(course: String, numSeats: Int?) { //
         cell_course.text = course
-        if((numSeats) != nil){
+        if((numSeats) != -1){
             cell_seats.text = String(numSeats!)
+        }else{
+            cell_seats.text = "??"
         }
 
     }

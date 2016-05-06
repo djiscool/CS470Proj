@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vLD-xr-eMv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vLD-xr-eMv">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -113,8 +113,8 @@
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="252" id="tUj-m8-q5z"/>
                                                     <constraint firstAttribute="height" constant="160" id="vHg-ym-Kq2"/>
                                                 </constraints>
-                                                <date key="date" timeIntervalSinceReferenceDate="481836265.19527006">
-                                                    <!--2016-04-08 19:24:25 +0000-->
+                                                <date key="date" timeIntervalSinceReferenceDate="481829400.19527006">
+                                                    <!--2016-04-08 17:30:00 +0000-->
                                                 </date>
                                             </datePicker>
                                             <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="sQf-Yu-dMQ">
@@ -123,8 +123,8 @@
                                                     <constraint firstAttribute="height" constant="160" id="8FS-eD-qZp"/>
                                                     <constraint firstAttribute="width" constant="252" id="M0b-7U-mZ3"/>
                                                 </constraints>
-                                                <date key="date" timeIntervalSinceReferenceDate="481836265.19527006">
-                                                    <!--2016-04-08 19:24:25 +0000-->
+                                                <date key="date" timeIntervalSinceReferenceDate="481836600.19527006">
+                                                    <!--2016-04-08 19:30:00 +0000-->
                                                 </date>
                                             </datePicker>
                                         </subviews>
@@ -390,6 +390,7 @@
                             <outlet property="delegate" destination="i3i-cz-cAi" id="CbW-W4-Zvd"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Courses - Seats" id="Lii-MY-yJM"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NoO-Re-GoU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -675,22 +676,18 @@
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cRw-HY-9KP">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="230"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dj_pic" translatesAutoresizingMaskIntoConstraints="NO" id="4wL-9I-FM5">
-                                                <rect key="frame" x="8" y="40" width="150" height="150"/>
-                                            </imageView>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pjj-nk-TaF">
-                                                <rect key="frame" x="166" y="40" width="199" height="150"/>
+                                                <rect key="frame" x="8" y="8" width="357" height="202"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About DJ:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9of-ZL-x2V">
-                                                        <rect key="frame" x="43" y="8" width="113" height="21"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="github: https://github.com/djiscool" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pJ-S9-AKF">
+                                                        <rect key="frame" x="46" y="61" width="264" height="120"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pJ-S9-AKF">
-                                                        <rect key="frame" x="4" y="30" width="191" height="120"/>
-                                                        <string key="text">text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text </string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About DJ:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9of-ZL-x2V">
+                                                        <rect key="frame" x="46" y="42" width="113" height="21"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -818,7 +815,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dj_pic" width="705" height="705"/>
         <image name="doran_pic" width="802" height="802"/>
     </resources>
     <inferredMetricsTieBreakers>

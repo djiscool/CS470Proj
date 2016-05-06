@@ -213,7 +213,7 @@ class CoursesDataSource: NSObject {
     func getNumSeats(index: Int) -> Int? {
         let course = getCourseForIndex(index)
         let fetchRequest = NSFetchRequest()
-        var numOfSeats = 0
+        var numOfSeats = -1
         
         // Create Entity Description
         let managedObjectContext = coreDataContext.backgroundContext!
@@ -239,7 +239,12 @@ class CoursesDataSource: NSObject {
             let result = try managedObjectContext.executeFetchRequest(fetchRequest)
             for course in result {
                 if let value = course.valueForKey("seats") as! Int? {
-                    numOfSeats += value
+                    if(value != -1){
+                        if(numOfSeats == -1){
+                            numOfSeats = 0
+                        }
+                        numOfSeats += value
+                    }
                 }
 
             }
