@@ -71,13 +71,24 @@ class CoursesDataSource: NSObject {
         
         // Configure Fetch Request
         fetchRequest.entity = entityDescription
-        
+        /*
         if allFalse(){
             fetchRequest.predicate = NSPredicate(format: "start_time >= %@ AND end_time <= %@", startTime!, endTime!)
         }
-        else{
-            fetchRequest.predicate = NSPredicate(format: "start_time >= %@ AND end_time <= %@ AND meeting_pattern = %@", startTime!, endTime!, daysString!)
-        }
+        else{*/
+            switch daysString! {
+                case "M", "T", "W", "TH", "F":
+                    fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@", startTime!, startTime!, endTime!, daysString!)
+                case "MW":
+                    fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", startTime!, startTime!, endTime!, "M", "W", "MW")
+                case "MWF":
+                    fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ or meeting_pattern = %@", startTime!, startTime!, endTime!, "M", "W", "F", "MW", "MWF")
+                case "TTH":
+                    fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@", startTime!, startTime!, endTime!, "T", "TH", "TTH")
+                default:
+                    fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@))", startTime!, startTime!, endTime!)
+            }
+        //}
         
         // sorts the results ascending
         let sortDescriptor = NSSortDescriptor(key: "subject", ascending: true)
@@ -90,6 +101,9 @@ class CoursesDataSource: NSObject {
                 if let value = ge.valueForKey("course_title") as! String? {
                     Courses.append(value)
                     //print("value \(value)")
+                }
+                if let seat = ge.valueForKey("seats") as! Int? {
+                    CourseSeats.append(seat)
                 }
             }
             courseCount += result.count
@@ -174,6 +188,10 @@ class CoursesDataSource: NSObject {
         print(Courses[index])
         return Courses[index]
 
+    }
+    
+    func getNumSeats(index: Int) -> Int? {
+        return CourseSeats[index]
     }
     
     

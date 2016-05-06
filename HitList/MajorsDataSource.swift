@@ -93,19 +93,19 @@ class MajorsDataSource: NSObject {
         fetchRequest.entity = entityDescription
         if allFalse(){
             if(GE == "GE"){
-                fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND start_time >= %@ AND end_time <= %@", GE, startTime!, endTime!)
+                fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@))", GE, startTime!, startTime!, endTime!)
             }
             else {
-                fetchRequest.predicate = NSPredicate(format: "start_time >= %@ AND end_time <= %@", startTime!, endTime!)
+                fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@))", startTime!, endTime!, endTime!)
                 
             }
         }
         else{
             if(GE == "GE"){
-                fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND start_time >= %@ AND end_time <= %@ AND meeting_pattern = %@", GE, startTime!, endTime!, createDayString())
+                fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@", GE, startTime!, startTime!, endTime!, createDayString())
             }
             else {
-                fetchRequest.predicate = NSPredicate(format: "start_time >= %@ AND end_time <= %@ AND meeting_pattern = %@", startTime!, endTime!, createDayString())
+                fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@", startTime!, startTime!, endTime!, createDayString())
                 
             }
         }

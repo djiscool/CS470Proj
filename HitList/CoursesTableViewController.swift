@@ -62,7 +62,7 @@ class CoursesTableViewController: UITableViewController {
         
         if let theCell = cell as? CourseTableViewCell {
         let course = coursesSchema.getCourseForIndex(indexPath.row)
-        theCell.useCourse(course, numSeats: nil) // nil until we figure out where to get seats from
+        theCell.useCourse(course, numSeats: coursesSchema.getNumSeats(indexPath.row)) // nil until we figure out where to get seats from
         }
         
         return cell

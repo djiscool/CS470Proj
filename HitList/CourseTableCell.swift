@@ -29,8 +29,7 @@ class CourseTableViewCell: UITableViewCell {
     func useCourse(course: String, numSeats: Int?) { //
         cell_course.text = course
         if((numSeats) != nil){
-            cell_seats.text = String(numSeats)
-
+            cell_seats.text = String(numSeats!)
         }
 
     }

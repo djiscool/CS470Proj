@@ -27,6 +27,7 @@
         <attribute name="min_units" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="s_factor" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="school_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seats" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="start_time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
@@ -35,6 +36,6 @@
     </entity>
     <elements>
         <element name="Entity" positionX="-63" positionY="135" width="128" height="60"/>
-        <element name="SSUCourses" positionX="-63" positionY="-18" width="128" height="465"/>
+        <element name="SSUCourses" positionX="-63" positionY="-18" width="128" height="480"/>
     </elements>
 </model>

@@ -135,7 +135,10 @@ class CourseSchemaProcessor: NSObject {
                 }
                 if let start_time = courseDict["start_time"] {
                     course.start_time = start_time as? String
-                    }
+                }
+                if let seats = courseDict["seats"] {
+                    course.seats = seats as? NSNumber
+                }
             }
         }
                 coreDataContext.saveContext()

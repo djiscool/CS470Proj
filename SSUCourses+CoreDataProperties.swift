@@ -2,7 +2,7 @@
 //  SSUCourses+CoreDataProperties.swift
 //  HitList
 //
-//  Created by student on 4/29/16.
+//  Created by DJ on 5/5/16.
 //  Copyright © 2016 Sonoma State. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -42,5 +42,6 @@ extension SSUCourses {
     @NSManaged var subject: String?
     @NSManaged var workload_factor: String?
     @NSManaged var wtu: NSNumber?
+    @NSManaged var seats: NSNumber?
 
 }
