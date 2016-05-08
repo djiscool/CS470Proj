@@ -222,9 +222,10 @@ class CoursesDataSource: NSObject {
         // Configure Fetch Request
         fetchRequest.entity = entityDescription
         
-        // Distinct
-        fetchRequest.returnsDistinctResults = true
         
+        // Distinct
+        fetchRequest.returnsDistinctResults = false
+        /*
         fetchRequest.resultType = .DictionaryResultType
         
         let sumExpression = NSExpression(format: "sum:(seats)")
@@ -234,22 +235,24 @@ class CoursesDataSource: NSObject {
         sumED.expressionResultType = .Integer16AttributeType
         
         fetchRequest.propertiesToFetch = ["seats", sumED]
+        */
         
         switch daysString! {
         case "M", "T", "W", "TH", "F":
             fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@", course, startTime!, startTime!, endTime!, daysString!)
         case "MW":
-            fetchRequest.predicate = NSPredicate(format: "course_title = %@AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", course, startTime!, startTime!, endTime!, "M", "W", "MW")
+            fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", course, startTime!, startTime!, endTime!, "M", "W", "MW")
         case "MWF":
-            fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ or meeting_pattern = %@", course,  startTime!, startTime!, endTime!, "M", "W", "F", "MW", "MWF")
+            fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", course,  startTime!, startTime!, endTime!, "M", "W", "F", "MW", "MWF")
         case "TTH":
-            fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@", course, startTime!, startTime!, endTime!, "T", "TH", "TTH")
+            fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", course, startTime!, startTime!, endTime!, "T", "TH", "TTH")
         default:
             fetchRequest.predicate = NSPredicate(format: "course_title = %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@))", course, startTime!, startTime!, endTime!)
         }
         
         do {
             let result = try managedObjectContext.executeFetchRequest(fetchRequest)
+            
             for course in result {
                 if let value = course.valueForKey("seats") as! Int? {
                     if(value != -1){
