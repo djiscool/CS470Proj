@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     // Ability to Change this url in the future would be nice
     // Address where the courses JSON is stored
     //let downloadAssistant = Download(withURLString: "https://www.cs.sonoma.edu/~dscott/spring2016courses.json")
-    let downloadAssistant = Download(withURLString: "https://www.cs.sonoma.edu/~dscott/test.json")
+    let downloadAssistant = Download(withURLString: "https://www.cs.sonoma.edu/~dscott/courses.json")
 
     var coursesSchema: CourseSchemaProcessor!
     

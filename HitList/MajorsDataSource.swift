@@ -77,13 +77,13 @@ class MajorsDataSource: NSObject {
         return allFalse
     }
     
-    func getHour(dateGiven: NSDate) -> Int {
+    private func getHour(dateGiven: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let hour =  calendar.component(NSCalendarUnit.Hour, fromDate: dateGiven)
         return hour
     }
     
-    func getMin(dateGiven: NSDate) -> Int {
+    private func getMin(dateGiven: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let min = calendar.component(NSCalendarUnit.Minute, fromDate: dateGiven)
         return min

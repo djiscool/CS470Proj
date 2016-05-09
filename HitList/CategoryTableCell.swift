@@ -27,10 +27,11 @@ class CategoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func useCategory(major: String, numCourses: Int) { //
+    func useCategory(ge: String, numCourses: Int, numSeats: Int) { //
         
-        let cellText = "\(major) (\(numCourses))"
-        geText.text = cellText
+        geText.text = ge
+        SectionText.text = String(numCourses)
+        SeatsText.text = String(numSeats)
         
     }
     

@@ -15,6 +15,7 @@ class CategoryTableViewController: UITableViewController {
     var endTime: NSDate?
     var dayString: String?
     var GE: String?
+    var selectedGE: String?
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class CategoryTableViewController: UITableViewController {
             categorySchema.setDate("")
         }
         categorySchema.setTime(startTime!, end: endTime!)
+        categorySchema.createGEarray()
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,11 +50,11 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        /*
-        if let n = majorsSchema {
-            return n.numOfMajors()
+        
+        if let n = categorySchema {
+            return n.numGEs()
         }
-        */
+        
         return 2
     }
     
@@ -61,24 +63,39 @@ class CategoryTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("CategoryTableCell", forIndexPath: indexPath)
         
-        // Configure the cell...
-        //cell.textLabel?.text = "Row number \(indexPath.row) in section \(indexPath.section)"
-        /*
-        if let theCell = cell as? MajorTableViewCell {
-            let major = majorsSchema.getMajorForIndex(indexPath.row)
-            theCell.useMajor(major, numCourses: majorsSchema.numCourses(major))
+        if let theCell = cell as? CategoryTableViewCell {
+            let categoryGE = categorySchema.GeForIndex(indexPath.row)
+            let categoryCoursesCount = categorySchema.numCoursesForGe(categoryGE)
+            let categorySeatsCount = categorySchema.numSeatsForGe(categoryGE)
+            theCell.useCategory(categoryGE, numCourses: categoryCoursesCount, numSeats: categorySeatsCount)
         }
-        */
-        /*
-        let course = coursesDS?.courseAt(indexPath.row)
-        cell.textLabel?.text = course?.courseName()
-        */
+        
         
         return cell
         
         
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        selectedGE = categorySchema.GeForIndex(indexPath.row)
+        performSegueWithIdentifier("ShowCourses", sender: self)
 
+    }
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowCourses" {
+            
+            let detailedVC = segue.destinationViewController as! CoursesTableViewController
+            
+            detailedVC.recieveDataFromCategory(categorySchema.getDays(), startTimeStr: categorySchema.getStartTime(), endTimeStr: categorySchema.getEndTime(), selectedGE: selectedGE!)
+            
+        }
+        
+    }
 
     
     

@@ -62,7 +62,7 @@ class CoursesTableViewController: UITableViewController {
         
         if let theCell = cell as? CourseTableViewCell {
         let course = coursesSchema.getCourseForIndex(indexPath.row)
-        theCell.useCourse(course, numSeats: coursesSchema.getNumSeats(indexPath.row)) // nil until we figure out where to get seats from
+        theCell.useCourse(course, numSeats: coursesSchema.getNumSeats(indexPath.row))
         }
         
         return cell
@@ -78,7 +78,7 @@ class CoursesTableViewController: UITableViewController {
         self.GECategory = "ALL"
     }
     
-    func recievedDataFromCategory(days: String?, startTimeStr: NSDate, endTimeStr: NSDate, selectedGE: String){
+    func recieveDataFromCategory(days: String?, startTimeStr: NSDate, endTimeStr: NSDate, selectedGE: String){
         allCourses = false
         self.dayString = days
         self.startTime = startTimeStr
