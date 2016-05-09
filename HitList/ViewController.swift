@@ -33,7 +33,6 @@ class ViewController: UIViewController {
                                                       //***
     @IBAction func clickMon(sender: UIButton) {       //***
         selectAndDeselectButtons(0)
-        weak var startTime: UINavigationItem!
         daysBool[0] = !daysBool[0]                    //***
     }                                                 //***
     @IBAction func clickTues(sender: UIButton) {      //***
@@ -171,6 +170,7 @@ class ViewController: UIViewController {
             }
             */
             // OR
+            /*
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "HH:mm:ss"
             let startTimeStr = dateFormatter.stringFromDate(startTime.date)
@@ -178,10 +178,11 @@ class ViewController: UIViewController {
             let dateFormatter2 = NSDateFormatter()
             dateFormatter2.dateFormat = "HH:mm:ss"
             let endTimeStr = dateFormatter2.stringFromDate(endTime.date)
+*/
             
             let detailedVC = segue.destinationViewController as! MajorsTableViewController
 
-            detailedVC.receiveDataFromTimeView(daysBool, startTimeStr: startTimeStr, endTimeStr: endTimeStr)
+            detailedVC.receiveDataFromTimeView(daysBool, startTimeStr: startTime.date, endTimeStr: endTime.date)
 
             }
             

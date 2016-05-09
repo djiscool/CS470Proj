@@ -15,8 +15,8 @@ class CategoryDataSource: NSObject {
     var dayString: String?
 
     var coursesParsed: Bool = false
-    var startTime: String?
-    var endTime: String?
+    var startTime: NSDate?
+    var endTime: NSDate?
     
     override init() {
         super.init()
@@ -24,7 +24,7 @@ class CategoryDataSource: NSObject {
         
     }
     
-    func setTime(start: String, end: String) {
+    func setTime(start: NSDate, end: NSDate) {
         self.startTime = start
         self.endTime = end
     }

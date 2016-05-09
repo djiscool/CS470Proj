@@ -12,8 +12,8 @@ import UIKit
 
 class CoursesTableViewController: UITableViewController {
     var coursesSchema: CoursesDataSource!
-    var startTime: String?
-    var endTime: String?
+    var startTime: NSDate?
+    var endTime: NSDate?
     var dayString: String?
     var allCourses: Bool?
     var GECategory: String?
@@ -70,15 +70,15 @@ class CoursesTableViewController: UITableViewController {
         
     }
     
-    func receiveDataFromMajorView(days: String?, startTimeStr: String, endTimeStr: String, selectedGE: String){
+    func receiveDataFromMajorView(days: String?, startTime: NSDate, endTime: NSDate, selectedGE: String){
         allCourses = true
         self.dayString = days
-        self.startTime = startTimeStr
-        self.endTime = endTimeStr
+        self.startTime = startTime
+        self.endTime = endTime
         self.GECategory = "ALL"
     }
     
-    func recievedDataFromCategory(days: String?, startTimeStr: String, endTimeStr: String, selectedGE: String){
+    func recievedDataFromCategory(days: String?, startTimeStr: NSDate, endTimeStr: NSDate, selectedGE: String){
         allCourses = false
         self.dayString = days
         self.startTime = startTimeStr

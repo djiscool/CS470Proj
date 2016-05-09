@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1605" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15A284" minimumToolsVersion="Automatic">
     <entity name="Entity" syncable="YES">
         <attribute name="some_value" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
@@ -8,15 +8,17 @@
         <attribute name="auto_enrol2" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="course_title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="department" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="end_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="end_time_hour" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="end_time_min" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="ge_designation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="meeting_pattern" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="seats" optional="YES" attributeType="Integer 16" defaultValueString="-1" syncable="YES"/>
-        <attribute name="start_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="start_time_hour" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="start_time_min" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Entity" positionX="-63" positionY="135" width="128" height="60"/>
-        <element name="SSUCourses" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="SSUCourses" positionX="-63" positionY="-18" width="128" height="225"/>
     </elements>
 </model>

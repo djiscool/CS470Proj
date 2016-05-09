@@ -11,8 +11,8 @@ import UIKit
 
 class MajorsTableViewController: UITableViewController {
     var majorsSchema: MajorsDataSource!
-    var startTime: String?
-    var endTime: String?
+    var startTime: NSDate?
+    var endTime: NSDate?
     var daysBool: [Bool]?
 
     override func viewDidLoad(){
@@ -27,7 +27,7 @@ class MajorsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated
     }
     
-    func receiveDataFromTimeView(daysBool: [Bool], startTimeStr: String, endTimeStr: String) {
+    func receiveDataFromTimeView(daysBool: [Bool], startTimeStr: NSDate, endTimeStr: NSDate) {
         // data from segueue
         self.startTime = startTimeStr
         self.endTime = endTimeStr
@@ -97,7 +97,7 @@ class MajorsTableViewController: UITableViewController {
             
             let detailedVC = segue.destinationViewController as! CoursesTableViewController
             
-            detailedVC.receiveDataFromMajorView(majorsSchema.createDayString(), startTimeStr: majorsSchema.getStartTime(), endTimeStr: majorsSchema.getEndTime(), selectedGE: "ALL")
+            detailedVC.receiveDataFromMajorView(majorsSchema.createDayString(), startTime: majorsSchema.getStartTime(), endTime: majorsSchema.getEndTime(), selectedGE: "ALL")
             
         }
         

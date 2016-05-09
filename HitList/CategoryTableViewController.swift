@@ -11,8 +11,8 @@ import UIKit
 
 class CategoryTableViewController: UITableViewController {
     var categorySchema: CategoryDataSource!
-    var startTime: String?
-    var endTime: String?
+    var startTime: NSDate?
+    var endTime: NSDate?
     var dayString: String?
     var GE: String?
     
@@ -33,7 +33,7 @@ class CategoryTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated
     }
     
-    func receiveDataFromMajorView(days: String?, startTimeStr: String, endTimeStr: String) {
+    func receiveDataFromMajorView(days: String?, startTimeStr: NSDate, endTimeStr: NSDate) {
         // rewrite this function. use this for segeue
         self.dayString = days
         self.startTime = startTimeStr

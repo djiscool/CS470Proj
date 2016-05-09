@@ -16,8 +16,8 @@ class MajorsDataSource: NSObject {
     var Majors: [String] = []
     var numMajors: Int = 0
     var daysBool: [Bool]?
-    var startTime: String?
-    var endTime: String?
+    var startTime: NSDate?
+    var endTime: NSDate?
 
     override init() {
         super.init()
@@ -26,15 +26,15 @@ class MajorsDataSource: NSObject {
 
     }
     
-    func getStartTime() -> String {
+    func getStartTime() -> NSDate {
         return startTime!
     }
     
-    func getEndTime() -> String {
+    func getEndTime() -> NSDate {
         return endTime!
     }
     
-    func setTime(start: String, end: String) {
+    func setTime(start: NSDate, end: NSDate) {
         self.startTime = start
         self.endTime = end
     }
@@ -77,6 +77,18 @@ class MajorsDataSource: NSObject {
         return allFalse
     }
     
+    func getHour(dateGiven: NSDate) -> Int {
+        let calendar = NSCalendar.currentCalendar()
+        let hour =  calendar.component(NSCalendarUnit.Hour, fromDate: dateGiven)
+        return hour
+    }
+    
+    func getMin(dateGiven: NSDate) -> Int {
+        let calendar = NSCalendar.currentCalendar()
+        let min = calendar.component(NSCalendarUnit.Minute, fromDate: dateGiven)
+        return min
+    }
+    
     // Assumes setTime, and setDate have been called
     func numCourses(GE: String) -> Int{
         // returns how many courses in total there are
@@ -93,10 +105,10 @@ class MajorsDataSource: NSObject {
         fetchRequest.entity = entityDescription
         if allFalse(){
             if(GE == "GE"){
-                fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@))", GE, startTime!, startTime!, endTime!)
+                fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time_hour > %d OR (start_time_hour == %d AND start_time_min >= %d)) OR ((end_time_hour > %d OR (end_time_hour == %d AND end_time_min >= %d)) AND (end_time_hour < %d OR (end_time_hour == %d AND end_time_min <= %d)))", GE, getHour(startTime!), getHour(startTime!), getMin(startTime!), getHour(startTime!), getHour(startTime!), getMin(startTime!),getHour(endTime!), getHour(endTime!), getMin(endTime!))
             }
             else {
-                fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@))", startTime!, endTime!, endTime!)
+                fetchRequest.predicate = NSPredicate(format: "(start_time_hour > %d OR (start_time_hour == %d AND start_time_min >= %d)) OR ((end_time_hour > %d OR (end_time_hour == %d AND end_time_min >= %d)) AND (end_time_hour < %d OR (end_time_hour == %d AND end_time_min <= %d)))", getHour(startTime!), getHour(startTime!), getMin(startTime!), getHour(startTime!), getHour(startTime!), getMin(startTime!),getHour(endTime!), getHour(endTime!), getMin(endTime!))
                 
             }
         }
@@ -107,15 +119,15 @@ class MajorsDataSource: NSObject {
                 */
                 switch createDayString() {
                 case "M", "T", "W", "TH", "F":
-                    fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@", GE, startTime!, startTime!, endTime!, createDayString())
+                    fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time_hour > %d OR (start_time_hour == %d AND start_time_min >= %d)) OR ((end_time_hour > %d OR (end_time_hour == %d AND end_time_min >= %d)) AND (end_time_hour < %d OR (end_time_hour == %d AND end_time_min <= %d))) AND meeting_pattern = %@", GE, getHour(startTime!), getHour(startTime!), getMin(startTime!), getHour(startTime!), getHour(startTime!), getMin(startTime!),getHour(endTime!), getHour(endTime!), getMin(endTime!), createDayString())
                 case "MW":
-                    fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", GE, startTime!, startTime!, endTime!, "M", "W", "MW")
+                    fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time_hour > %d OR (start_time_hour == %d AND start_time_min >= %d)) OR ((end_time_hour > %d OR (end_time_hour == %d AND end_time_min >= %d)) AND (end_time_hour < %d OR (end_time_hour == %d AND end_time_min <= %d))) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", GE,getHour(startTime!), getHour(startTime!), getMin(startTime!), getHour(startTime!), getHour(startTime!), getMin(startTime!),getHour(endTime!), getHour(endTime!), getMin(endTime!), "M", "W", "MW")
                 case "MWF":
-                    fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ or meeting_pattern = %@)", GE,  startTime!, startTime!, endTime!, "M", "W", "F", "MW", "MWF")
+                    fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time_hour > %d OR (start_time_hour == %d AND start_time_min >= %d)) OR ((end_time_hour > %d OR (end_time_hour == %d AND end_time_min >= %d)) AND (end_time_hour < %d OR (end_time_hour == %d AND end_time_min <= %d))) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ or meeting_pattern = %@)", GE,  getHour(startTime!), getHour(startTime!), getMin(startTime!), getHour(startTime!), getHour(startTime!), getMin(startTime!),getHour(endTime!), getHour(endTime!), getMin(endTime!), "M", "W", "F", "MW", "MWF")
                 case "TTH":
-                    fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", GE, startTime!, startTime!, endTime!, "T", "TH", "TTH")
+                    fetchRequest.predicate = NSPredicate(format: "ge_designation contains[c] %@ AND (start_time_hour > %d OR (start_time_hour == %d AND start_time_min >= %d)) OR ((end_time_hour > %d OR (end_time_hour == %d AND end_time_min >= %d)) AND (end_time_hour < %d OR (end_time_hour == %d AND end_time_min <= %d))) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", GE,getHour(startTime!), getHour(startTime!), getMin(startTime!), getHour(startTime!), getHour(startTime!), getMin(startTime!),getHour(endTime!), getHour(endTime!), getMin(endTime!), "T", "TH", "TTH")
                 default:
-                    fetchRequest.predicate = NSPredicate(format:  "ge_designation contains[c] %@ AND (start_time >= %@ OR (end_time >= %@ AND end_time <= %@))", GE, startTime!, startTime!, endTime!)
+                    fetchRequest.predicate = NSPredicate(format:  "ge_designation contains[c] %@ AND (start_time_hour > %d OR (start_time_hour == %d AND start_time_min >= %d)) OR ((end_time_hour > %d OR (end_time_hour == %d AND end_time_min >= %d)) AND (end_time_hour < %d OR (end_time_hour == %d AND end_time_min <= %d)))", GE, getHour(startTime!), getHour(startTime!), getMin(startTime!), getHour(startTime!), getHour(startTime!), getMin(startTime!),getHour(endTime!), getHour(endTime!), getMin(endTime!))
                 }
             }
             else {
@@ -124,15 +136,15 @@ class MajorsDataSource: NSObject {
                 */
                 switch createDayString() {
                 case "M", "T", "W", "TH", "F":
-                    fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND meeting_pattern = %@", startTime!, startTime!, endTime!, createDayString())
+                    fetchRequest.predicate = NSPredicate(format: "(start_time_hour > %d OR (start_time_hour == %d AND start_time_min >= %d)) OR ((end_time_hour > %d OR (end_time_hour == %d AND end_time_min >= %d)) AND (end_time_hour < %d OR (end_time_hour == %d AND end_time_min <= %d))) AND meeting_pattern = %@", getHour(startTime!), getHour(startTime!), getMin(startTime!), getHour(startTime!), getHour(startTime!), getMin(startTime!),getHour(endTime!), getHour(endTime!), getMin(endTime!), createDayString())
                 case "MW":
-                    fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", startTime!, startTime!, endTime!, "M", "W", "MW")
+                    fetchRequest.predicate = NSPredicate(format: "(start_time_hour > %d OR (start_time_hour == %d AND start_time_min >= %d)) OR ((end_time_hour > %d OR (end_time_hour == %d AND end_time_min >= %d)) AND (end_time_hour < %d OR (end_time_hour == %d AND end_time_min <= %d))) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", getHour(startTime!), getHour(startTime!), getMin(startTime!), getHour(startTime!), getHour(startTime!), getMin(startTime!),getHour(endTime!), getHour(endTime!), getMin(endTime!), "M", "W", "MW")
                 case "MWF":
-                    fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", startTime!, startTime!, endTime!, "M", "W", "F", "MW", "MWF")
+                    fetchRequest.predicate = NSPredicate(format: "(start_time_hour > %d OR (start_time_hour == %d AND start_time_min >= %d)) OR ((end_time_hour > %d OR (end_time_hour == %d AND end_time_min >= %d)) AND (end_time_hour < %d OR (end_time_hour == %d AND end_time_min <= %d))) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", getHour(startTime!), getHour(startTime!), getMin(startTime!), getHour(startTime!), getHour(startTime!), getMin(startTime!),getHour(endTime!), getHour(endTime!), getMin(endTime!), "M", "W", "F", "MW", "MWF")
                 case "TTH":
-                    fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@)) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", startTime!, startTime!, endTime!, "T", "TH", "TTH")
+                    fetchRequest.predicate = NSPredicate(format: "(start_time_hour > %d OR (start_time_hour == %d AND start_time_min >= %d)) OR ((end_time_hour > %d OR (end_time_hour == %d AND end_time_min >= %d)) AND (end_time_hour < %d OR (end_time_hour == %d AND end_time_min <= %d))) AND (meeting_pattern = %@ OR meeting_pattern = %@ OR meeting_pattern = %@)", getHour(startTime!), getHour(startTime!), getMin(startTime!), getHour(startTime!), getHour(startTime!), getMin(startTime!),getHour(endTime!), getHour(endTime!), getMin(endTime!), "T", "TH", "TTH")
                 default:
-                    fetchRequest.predicate = NSPredicate(format: "(start_time >= %@ OR (end_time >= %@ AND end_time <= %@))", startTime!, startTime!, endTime!)
+                    fetchRequest.predicate = NSPredicate(format: "(start_time_hour > %d OR (start_time_hour == %d AND start_time_min >= %d)) OR ((end_time_hour > %d OR (end_time_hour == %d AND end_time_min >= %d)) AND (end_time_hour < %d OR (end_time_hour == %d AND end_time_min <= %d)))", getHour(startTime!), getHour(startTime!), getMin(startTime!), getHour(startTime!), getHour(startTime!), getMin(startTime!),getHour(endTime!), getHour(endTime!), getMin(endTime!))
                 }
             }
         }

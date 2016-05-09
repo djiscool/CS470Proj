@@ -74,10 +74,44 @@ class CourseSchemaProcessor: NSObject {
                     course.subject = subject as? String
                 }
                 if let end_time = courseDict["end_time"] {
-                    course.end_time = end_time as? String
+                    let str = end_time as? String
+                    //get hour
+                    if (str != nil) {
+                        let index1 = str!.endIndex.advancedBy(-6)
+                        let substr = str!.substringToIndex(index1)
+                        //print("subHr: \(substr)")
+                        course.start_time_hour = Int(substr)
+                        //print(course.start_time_hour)
+                        
+                        // get min
+                        let index2 = str!.endIndex.advancedBy(-5)
+                        let sub = str!.substringFromIndex(index2)
+                        let index3 = sub.endIndex.advancedBy(-3)
+                        let subMin = sub.substringToIndex(index3)
+                        print("subMin: \(subMin)")
+                        course.start_time_min = Int(subMin)
+                        print("---")
+                        
+                    }
                 }
                 if let start_time = courseDict["start_time"] {
-                    course.start_time = start_time as? String
+                    let str = start_time as? String
+                    //get hour
+                    if (str != nil) {
+                        let index1 = str!.endIndex.advancedBy(-6)
+                        let substr = str!.substringToIndex(index1)
+                        course.start_time_hour = Int(substr)
+                        
+                        // get min
+                        let index2 = str!.endIndex.advancedBy(-5)
+                        let sub = str!.substringFromIndex(index2)
+                        let index3 = sub.endIndex.advancedBy(-3)
+                        let subMin = sub.substringToIndex(index3)
+                        //print("subMin: \(subMin)")
+                        course.start_time_min = Int(subMin)
+                        //print("---")
+                        
+                    }
                 }
                 if let seats = courseDict["total_enrolled"] {
                     course.seats = seats as? NSNumber
@@ -95,7 +129,7 @@ class CourseSchemaProcessor: NSObject {
             let courses = result as! [SSUCourses]
             print("Printing titles of all courses")
             for course in courses {
-                print(course.course_title, course.start_time)
+                print(course.course_title, course.start_time_hour, course.start_time_min)
             }
         } catch {
             print("Unable to fetch all courses from the database.")
