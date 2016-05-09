@@ -54,16 +54,13 @@ class MajorsTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("MajorTableCell", forIndexPath: indexPath)
         
-        // Configure the cell...
-        //cell.textLabel?.text = "Row number \(indexPath.row) in section \(indexPath.section)"
+        // Configure the Majors cell...
+
         if let theCell = cell as? MajorTableViewCell {
             let major = majorsSchema.getMajorForIndex(indexPath.row)
             theCell.useMajor(major, numCourses: majorsSchema.numCourses(major))
         }
-        /*
-        let course = coursesDS?.courseAt(indexPath.row)
-        cell.textLabel?.text = course?.courseName()
-        */
+
         
         return cell
 

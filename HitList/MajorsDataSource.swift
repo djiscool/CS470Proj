@@ -34,15 +34,20 @@ class MajorsDataSource: NSObject {
         return endTime!
     }
     
+    // Must be set {
+    
+    // sets Time interval to use
     func setTime(start: NSDate, end: NSDate) {
         self.startTime = start
         self.endTime = end
     }
     
+    // set days to use
     func setDate(days: [Bool]) {
         daysBool = days
     }
     
+    // helper function to create a string representing days to compare with database
     func createDayString() -> String {
         var dayString: String = ""
         if daysBool![0] == true {
@@ -65,7 +70,9 @@ class MajorsDataSource: NSObject {
         }
         return dayString
     }
+    // End Must be set}
     
+    // checks if all days are not selected i.e. ""
     func allFalse() -> Bool {
         var allFalse: Bool = true
         for i in daysBool! {
@@ -77,19 +84,22 @@ class MajorsDataSource: NSObject {
         return allFalse
     }
     
+    //helper function to get the hour from NSDate
     private func getHour(dateGiven: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let hour =  calendar.component(NSCalendarUnit.Hour, fromDate: dateGiven)
         return hour
     }
     
+        //helper function to get the minutes from NSDate
     private func getMin(dateGiven: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let min = calendar.component(NSCalendarUnit.Minute, fromDate: dateGiven)
         return min
     }
     
-    // Assumes setTime, and setDate have been called
+    // Assumes setTime, and setDate have been called, returns the number of courses in a given GE
+    // given a time interval, and days
     func numCourses(GE: String) -> Int{
         // returns how many courses in total there are
         
@@ -160,37 +170,7 @@ class MajorsDataSource: NSObject {
         }
         return count
     }
-    /*
-    func numCourses(GE: String) -> Int {
-        
-        
-        // returns how many courses in give GE or subject
-        // Initialize Fetch Request
-        let fetchRequest = NSFetchRequest()
-        var count = 0
-        
-        // Create Entity Description
-        let managedObjectContext = coreDataContext.backgroundContext!
-        let entityDescription = NSEntityDescription.entityForName("SSUCourses", inManagedObjectContext: managedObjectContext)
-        
-        // Configure Fetch Request
-        fetchRequest.entity = entityDescription
 
-        fetchRequest.predicate = NSPredicate(format: "ge_designation = %@", GE)
-        
-        do {
-            let result = try managedObjectContext.executeFetchRequest(fetchRequest)
-            count = result.count
-            //print(count)
-            
-        } catch {
-            let fetchError = error as NSError
-            print(fetchError)
-        }
-        return count
-        
-    }
-*/
     
     // parses all available GE Categories from database, and puts in a string[]
     func createGEarray() {
@@ -233,7 +213,7 @@ class MajorsDataSource: NSObject {
         }
     }
     
-    
+
     func createMajors() {
         // hard coding for now
         /*

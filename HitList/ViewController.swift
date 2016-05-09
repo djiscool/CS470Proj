@@ -97,17 +97,16 @@ class ViewController: UIViewController {
         
             }
     
-    
+    // called when value that has been watched has changed
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if(!haveVersion){
-            // Get Version from web
+            // Get Version from web if newer version download new JSON, else contiue on
             VersionGet.download_request()
             let version = DatabaseVersion(version: VersionGet.dataFromServer!)
             if (version.getVersion() != nil) {
                 versionNumber = version.getVersion()!
             }
             
-            //print(VersionGet.dataFromServer)
             print(version.getVersion())
             
             // https://www.hackingwithswift.com/read/12/2/reading-and-writing-basics-nsuserdefaults
@@ -139,6 +138,7 @@ class ViewController: UIViewController {
         if(downloadNewData){
             haveVersion = true
         }
+        // end check for newer version
     }
     
     deinit {
@@ -162,23 +162,7 @@ class ViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "ShowMajors" {
-            /*
-            if let row = tableView.indexPathForSelectedRow?.row {
-            let artist = artistsDS?.artistAt(row)
-            let detailedVC = segue.destinationViewController as! ArtistDetailedViewController
-            detailedVC.artistForThisView(artist!)
-            }
-            */
-            // OR
-            /*
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "HH:mm:ss"
-            let startTimeStr = dateFormatter.stringFromDate(startTime.date)
-        
-            let dateFormatter2 = NSDateFormatter()
-            dateFormatter2.dateFormat = "HH:mm:ss"
-            let endTimeStr = dateFormatter2.stringFromDate(endTime.date)
-*/
+
             
             let detailedVC = segue.destinationViewController as! MajorsTableViewController
 

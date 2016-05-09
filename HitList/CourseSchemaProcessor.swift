@@ -24,29 +24,15 @@ class CourseSchemaProcessor: NSObject {
         super.init()
         processJSON(courseModelJSON)
 
-        /*
-        fetchArtistWithName("Beatles, The")
-        fetchAlbumWithID("97269")
-        */
-        //fetchAllCourses()
     }
 
     func processJSON(schema: [AnyObject]) {
-        /*
-        for entity in schema {
-            if let payload = entity["payload"], let entity_name = entity["entity_name"] {
-                let name = entity_name as! String
-                let objects = payload as! [AnyObject]
-                
-                if name == "SSUCourses" {
-*/ // Outline for processing JSON wtih multiple entities
-            // we don't have multiple entities, so we only need to process schema instead of objects
-                    processCoursesJSON(schema)
-                //}
-            //}
-        //}
+
+        processCoursesJSON(schema)
+
     }
     
+    // process JSON and put into core data
     func processCoursesJSON(artistObjects: [AnyObject]) {
         for artistObject in artistObjects {
             if let courseDict = artistObject as? Dictionary<String, AnyObject> {
@@ -66,6 +52,7 @@ class CourseSchemaProcessor: NSObject {
                 }
                 if let ge_designation = courseDict["ge_designation"] {
                     course.ge_designation = ge_designation as? String
+                    print(course.ge_designation)
                 }
                 if let meeting_pattern = courseDict["meeting_pattern"] {
                     course.meeting_pattern = meeting_pattern as? String
@@ -75,34 +62,34 @@ class CourseSchemaProcessor: NSObject {
                 }
                 if let end_time = courseDict["end_time"] {
                     let str = end_time as? String
-                    //get hour
                     if (str != nil) {
+                        //get hour
                         let index1 = str!.endIndex.advancedBy(-6)
                         let substr = str!.substringToIndex(index1)
                         //print("subHr: \(substr)")
                         course.start_time_hour = Int(substr)
                         //print(course.start_time_hour)
                         
-                        // get min
+                        // get minutes
                         let index2 = str!.endIndex.advancedBy(-5)
                         let sub = str!.substringFromIndex(index2)
                         let index3 = sub.endIndex.advancedBy(-3)
                         let subMin = sub.substringToIndex(index3)
-                        print("subMin: \(subMin)")
+                        //print("subMin: \(subMin)")
                         course.start_time_min = Int(subMin)
-                        print("---")
+                        //print("---")
                         
                     }
                 }
                 if let start_time = courseDict["start_time"] {
                     let str = start_time as? String
-                    //get hour
                     if (str != nil) {
+                        //get hour
                         let index1 = str!.endIndex.advancedBy(-6)
                         let substr = str!.substringToIndex(index1)
                         course.start_time_hour = Int(substr)
                         
-                        // get min
+                        // get minutes
                         let index2 = str!.endIndex.advancedBy(-5)
                         let sub = str!.substringFromIndex(index2)
                         let index3 = sub.endIndex.advancedBy(-3)
@@ -118,7 +105,7 @@ class CourseSchemaProcessor: NSObject {
                 }
             }
         }
-                coreDataContext.saveContext()
+                coreDataContext.saveContext() // this is what actually saves to core data
     }
     
     func fetchAllCourses() {

@@ -6,7 +6,7 @@
 //
 //  Created by AAK on 3/10/16.
 //  Copyright © 2016 SSU. All rights reserved.
-//
+//  copied from an example given by Dr Ali. Kooshesh at SSU for downloading a JSON from a server
 
 import UIKit
 

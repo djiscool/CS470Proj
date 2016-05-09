@@ -20,15 +20,16 @@ class CategoryDataSource: NSObject {
     
     override init() {
         super.init()
-        //createGEarray()
         
     }
     
+    // sets time interval to use
     func setTime(start: NSDate, end: NSDate) {
         self.startTime = start
         self.endTime = end
     }
     
+    // sets days to use
     func setDate(days: String) {
         daysString = days
     }
@@ -45,6 +46,7 @@ class CategoryDataSource: NSObject {
         return daysString
     }
     
+    // checks if all days are not selected i.e. ""
     func allFalse() -> Bool {
         if(daysString == ""){
             return true
@@ -56,12 +58,14 @@ class CategoryDataSource: NSObject {
         return GECourses.count
     }
     
+    //helper function to get the hour from NSDate
     func getHour(dateGiven: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let hour =  calendar.component(NSCalendarUnit.Hour, fromDate: dateGiven)
         return hour
     }
     
+    //helper function to get the minutes from NSDate
     func getMin(dateGiven: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let min = calendar.component(NSCalendarUnit.Minute, fromDate: dateGiven)
@@ -69,6 +73,7 @@ class CategoryDataSource: NSObject {
     }
     
     // parses all available GE Categories from database, and puts in a string[]
+    // given a set time interval and day[]
     func createGEarray() {
         if(!coursesParsed) {
             // Initialize Fetch Request
@@ -121,6 +126,7 @@ class CategoryDataSource: NSObject {
             }
         }
     }
+    
     func GeForIndex(index: Int) -> String {
         return GECourses[index]
     }

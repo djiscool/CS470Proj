@@ -23,20 +23,24 @@ class CoursesDataSource: NSObject {
         super.init()
     }
     
+    // sets time interval to use
     func setTime(start: NSDate, end: NSDate) {
         self.startTime = start
         self.endTime = end
     }
     
+    // sets day[] to use
     func setDate(days: String) {
         daysString = days
     }
     
+    // sets GE to use 
+    // can be nil
     func setGECategory(GE: String) {
         self.GE = GE
     }
 
-    
+    // checks if all days were not selected
     func allFalse() -> Bool {
         if(daysString == ""){
             return true
@@ -50,7 +54,9 @@ class CoursesDataSource: NSObject {
         return courseCount
         
     }
+    
     // time, date, and ge must be set first
+    // helper function to decide if fetching for GE's or not specified
     func fetchCourses(){
         if(GE == "ALL"){
             fetchAllCourses()
@@ -72,6 +78,8 @@ class CoursesDataSource: NSObject {
         return min
     }
     
+    // creates an array, Courses, given a set time interval and days[]
+    // assumes not GE
     private func fetchAllCourses(){
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest()
@@ -127,6 +135,8 @@ class CoursesDataSource: NSObject {
 
     }
 
+    // Creates an array Courses given a GE, Time interval, and day String
+    // assumes givens are already set
     private func fetchCoursesForGe(){
         let fetchRequest = NSFetchRequest()
         
@@ -187,6 +197,7 @@ class CoursesDataSource: NSObject {
 
     }
     
+    //helper function for GE's with auto enrol courses
     func getCourseForAutoEnroll(courseTitle: String, section: String){
         let fetchRequest = NSFetchRequest()
         
@@ -237,17 +248,6 @@ class CoursesDataSource: NSObject {
         
         // Distinct
         fetchRequest.returnsDistinctResults = false
-        /*
-        fetchRequest.resultType = .DictionaryResultType
-        
-        let sumExpression = NSExpression(format: "sum:(seats)")
-        let sumED = NSExpressionDescription()
-        sumED.expression = sumExpression
-        sumED.name = "sumOfAmount"
-        sumED.expressionResultType = .Integer16AttributeType
-        
-        fetchRequest.propertiesToFetch = ["seats", sumED]
-        */
         
         switch daysString! {
         case "M", "T", "W", "TH", "F":
