@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var startTime: UIDatePicker!
     @IBOutlet weak var endTime: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var home: UIButton!
     
     // ****************************************************
     // ******************** UI CHANGES ********************
@@ -78,7 +79,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Download version number from server
+        
+        self.navigationItem.setHidesBackButton(true, animated: true)
         
         // ******************************************
         // *************** UI CHANGES ***************
@@ -92,6 +94,7 @@ class ViewController: UIViewController {
         // *************** UI CHANGES ***************
         // ******************************************
         
+        // Download version number from server
         VersionGet.addObserver(self, forKeyPath: "dataFromServer", options: .Old, context: nil)
         VersionGet.download_request()
         
