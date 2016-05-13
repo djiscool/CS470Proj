@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vLD-xr-eMv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vLD-xr-eMv">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Major Select-->
+        <!--Select Major-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MajorsTableViewController" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MajorTableCell" textLabel="HYZ-5X-Ufw" style="IBUITableViewCellStyleDefault" id="KFq-JZ-5rt" customClass="MajorTableViewCell" customModule="HitList" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KFq-JZ-5rt" id="Ctq-0e-qyb">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -38,7 +38,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Major Select" id="v9u-64-vJB"/>
+                    <navigationItem key="navigationItem" title="Select Major" id="v9u-64-vJB"/>
                     <connections>
                         <segue destination="Cgn-9B-v6K" kind="show" identifier="ShowCategoryView" id="5AE-UL-oHV"/>
                         <segue destination="i3i-cz-cAi" kind="show" identifier="ShowCoursesView" id="wxe-KO-kWC"/>
@@ -51,14 +51,14 @@
         <!--Category Table View Controller-->
         <scene sceneID="dBS-4T-LYG">
             <objects>
-                <tableViewController storyboardIdentifier="CategoryView" title="CategoryView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cgn-9B-v6K" userLabel="Category Table View Controller" customClass="CategoryTableViewController" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CategoryView" title="GE - Sections - Seats" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cgn-9B-v6K" userLabel="Category Table View Controller" customClass="CategoryTableViewController" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="63r-IH-hWi" userLabel="Category Table View">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CategoryTableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableCell" id="xn0-GH-ESo" userLabel="CategoryTableCell" customClass="CategoryTableViewCell" customModule="HitList">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xn0-GH-ESo" id="NVv-hf-rY3">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -143,14 +143,14 @@
         <!--Courses View Controller-->
         <scene sceneID="yCP-3e-wJd">
             <objects>
-                <tableViewController storyboardIdentifier="Courses View" title="CoursesView" id="i3i-cz-cAi" userLabel="Courses View Controller" customClass="CoursesTableViewController" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Courses View" title="Course - Seats" id="i3i-cz-cAi" userLabel="Courses View Controller" customClass="CoursesTableViewController" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hGM-yJ-0DG" userLabel="Courses Table View">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseTableCell" id="MZs-Pb-AHr" userLabel="CourseTableCell" customClass="CourseTableViewCell" customModule="HitList" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MZs-Pb-AHr" id="NZ9-pO-Hu0">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -181,7 +181,7 @@
                             <outlet property="delegate" destination="i3i-cz-cAi" id="CbW-W4-Zvd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Courses - Seats" id="Lii-MY-yJM"/>
+                    <navigationItem key="navigationItem" title="Course - Seats" id="Lii-MY-yJM"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NoO-Re-GoU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,7 +205,7 @@
             </objects>
             <point key="canvasLocation" x="-788" y="203"/>
         </scene>
-        <!--Start View-->
+        <!--Select Time-->
         <scene sceneID="9NK-AY-Ibr">
             <objects>
                 <viewController id="RTY-Mr-hCL" customClass="ViewController" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
@@ -432,7 +432,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Start View" id="Ht2-90-DuE"/>
+                    <navigationItem key="navigationItem" title="Select Time" id="Ht2-90-DuE"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="endTime" destination="5bR-Nd-BDc" id="AkS-bT-xai"/>
@@ -645,7 +645,7 @@
         <image name="help4" width="310" height="552"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jlE-40-i14"/>
         <segue reference="wxe-KO-kWC"/>
+        <segue reference="kLk-6p-K3F"/>
     </inferredMetricsTieBreakers>
 </document>
